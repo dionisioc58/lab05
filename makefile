@@ -25,7 +25,7 @@ CFLAGS = -Wall -pedantic -ansi -std=c++11 -I $(INC_DIR)
 # Define o alvo (target) para a compilacao completa.
 # Ao final da compilacao, remove os arquivos objeto.
 all: lab05 doxy
-debug: CFLAGS += -g -O0
+debug: CFLAGS += -g #-O0
 debug: lab05
 
 # Alvo (target) para a construcao do executavel lab05

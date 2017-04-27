@@ -11,7 +11,7 @@
     private:
         string nome;
         string cnpj;
-        Funcionario **funcionarios;
+        Funcionario *funcionarios;
         int qtde;
     public:
         Empresa();
@@ -19,9 +19,9 @@
         void setNome(string n);
         string getCnpj();
         void setCnpj(string c);
-        Funcionario **getFuncionarios();
+        Funcionario getFuncionario(int n);
         int getQtde();
-        bool addFuncionario(Funcionario *f);
+        bool addFuncionario(Funcionario f);
     };
 
 #endif // !FUNCIONARIO_H
