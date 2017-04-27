@@ -1,5 +1,12 @@
 #include "empresa.h"
 
+Empresa::Empresa() {
+    nome = "";
+    cnpj = "";
+    qtde = 0;
+    funcionarios = new Funcionario*[3];
+}
+
 string Empresa::getNome() {
     return nome;
 }
@@ -16,14 +23,13 @@ void Empresa::setCnpj(string c) {
 
 }
 
-bool Empresa::addFuncionario(Funcionario f) {
+bool Empresa::addFuncionario(Funcionario *f) {
+    funcionarios[qtde] = f;
     qtde++;
-    funcionarios = new Funcionario[qtde];
-    funcionarios[qtde-1] = f;
     return true;
 }
 
-Funcionario *Empresa::getFuncionarios() {
+Funcionario **Empresa::getFuncionarios() {
     return funcionarios;
 }
 

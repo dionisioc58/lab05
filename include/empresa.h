@@ -11,16 +11,17 @@
     private:
         string nome;
         string cnpj;
-        Funcionario *funcionarios;
+        Funcionario **funcionarios;
         int qtde;
     public:
+        Empresa();
         string getNome();
         void setNome(string n);
         string getCnpj();
         void setCnpj(string c);
-        Funcionario *getFuncionarios();
+        Funcionario **getFuncionarios();
         int getQtde();
-        bool addFuncionario(Funcionario f);
+        bool addFuncionario(Funcionario *f);
     };
 
 #endif // !FUNCIONARIO_H
