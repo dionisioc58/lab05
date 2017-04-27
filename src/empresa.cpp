@@ -4,7 +4,6 @@ Empresa::Empresa() {
     nome = "";
     cnpj = "";
     qtde = 0;
-    //funcionarios = new Funcionario[1];
 }
 
 string Empresa::getNome() {
@@ -23,7 +22,18 @@ void Empresa::setCnpj(string c) {
     cnpj = c;
 }
 
+int Empresa::getQtde() {
+    return qtde;
+}
+
+Funcionario *Empresa::getFuncionarios() {
+    return funcionarios;
+}
+
 bool Empresa::addFuncionario(Funcionario f) {
+    if(pertenceQuadro(f.getNome())) 
+        return false;
+
     if(qtde > 0) {
         //Se já tem funcionários, aumenta o vetor, copia a antiga lista para um novo maior
         Funcionario *resize_arr = new Funcionario[qtde + 1];
@@ -39,10 +49,9 @@ bool Empresa::addFuncionario(Funcionario f) {
     return true;
 }
 
-Funcionario Empresa::getFuncionario(int n) {
-    return funcionarios[n];
-}
-
-int Empresa::getQtde() {
-    return qtde;
+bool Empresa::pertenceQuadro(string n) {
+    for(int i = 0; i < qtde; i++)
+        if(funcionarios[i].getNome() == n)
+            return true;
+    return false;
 }

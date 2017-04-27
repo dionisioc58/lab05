@@ -19,9 +19,10 @@
         void setNome(string n);
         string getCnpj();
         void setCnpj(string c);
-        Funcionario getFuncionario(int n);
         int getQtde();
+        Funcionario *getFuncionarios();
         bool addFuncionario(Funcionario f);
+        bool pertenceQuadro(string n);
     };
 
 #endif // !FUNCIONARIO_H

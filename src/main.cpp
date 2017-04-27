@@ -1,5 +1,6 @@
 #include <iostream>
 using std::cout;
+using std::cerr;
 using std::endl;
 
 #include "funcionario.h"
@@ -14,8 +15,12 @@ int main(int argc, char* argv[]) {
     func[0].setNome("Josivan");
     func[1].setNome("Daniel");
 
-    emp[0].addFuncionario(func[0]);
-    emp[0].addFuncionario(func[1]);
+    if(!emp[0].addFuncionario(func[0]))
+        cerr << "Não incluiu!" << endl;
+    if(!emp[0].addFuncionario(func[1]))
+        cerr << "Não incluiu!" << endl;
+    if(!emp[0].addFuncionario(func[1]))
+        cerr << "Não incluiu!" << endl;
 
     emp[1].addFuncionario(func[1]);
 
@@ -27,8 +32,9 @@ int main(int argc, char* argv[]) {
 
     for(int j = 0; j < 2; j++) {
         cout << "Funcionários da empresa " << emp[j].getNome() << endl;
+        Funcionario *f = emp[j].getFuncionarios();
         for(int i = 0; i < emp[j].getQtde(); i++)
-            cout << "-----> " << emp[j].getFuncionario(i).getNome() << endl;
+            cout << "-----> " << f[i].getNome() << endl;
     }
 
     return 0;
