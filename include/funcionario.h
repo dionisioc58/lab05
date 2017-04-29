@@ -9,14 +9,17 @@
     private:
         string nome;
         float salario;
-        time_t admissao;
+        std::chrono::system_clock::time_point admissao;
     public:
+        Funcionario();
+        Funcionario(Funcionario &f);
+        ~Funcionario();
         string getNome();
         void setNome(string n);
         float getSalario();
         void setSalario(float s);
-        std::chrono::steady_clock::time_point getAdmissao();
-        void setAdmissao(std::chrono::steady_clock::time_point a);
+        std::chrono::system_clock::time_point getAdmissao();
+        void setAdmissao(std::chrono::system_clock::time_point a);
     };
 
 #endif // !FUNCIONARIO_H

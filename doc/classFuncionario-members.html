@@ -69,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -87,16 +87,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 
 <p>Esta é a lista de todos os membros de <a class="el" href="classFuncionario.html">Funcionario</a>, incluindo os membros herdados.</p>
 <table class="directory">
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>Funcionario</b>() (definido(a) em <a class="el" href="classFuncionario.html">Funcionario</a>)</td><td class="entry"><a class="el" href="classFuncionario.html">Funcionario</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>Funcionario</b>(Funcionario &amp;f) (definido(a) em <a class="el" href="classFuncionario.html">Funcionario</a>)</td><td class="entry"><a class="el" href="classFuncionario.html">Funcionario</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getAdmissao</b>() (definido(a) em <a class="el" href="classFuncionario.html">Funcionario</a>)</td><td class="entry"><a class="el" href="classFuncionario.html">Funcionario</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>getNome</b>() (definido(a) em <a class="el" href="classFuncionario.html">Funcionario</a>)</td><td class="entry"><a class="el" href="classFuncionario.html">Funcionario</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>getSalario</b>() (definido(a) em <a class="el" href="classFuncionario.html">Funcionario</a>)</td><td class="entry"><a class="el" href="classFuncionario.html">Funcionario</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>setAdmissao</b>(std::chrono::steady_clock::time_point a) (definido(a) em <a class="el" href="classFuncionario.html">Funcionario</a>)</td><td class="entry"><a class="el" href="classFuncionario.html">Funcionario</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0"><td class="entry"><b>setAdmissao</b>(std::chrono::system_clock::time_point a) (definido(a) em <a class="el" href="classFuncionario.html">Funcionario</a>)</td><td class="entry"><a class="el" href="classFuncionario.html">Funcionario</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>setNome</b>(string n) (definido(a) em <a class="el" href="classFuncionario.html">Funcionario</a>)</td><td class="entry"><a class="el" href="classFuncionario.html">Funcionario</a></td><td class="entry"></td></tr>
   <tr bgcolor="#f0f0f0"><td class="entry"><b>setSalario</b>(float s) (definido(a) em <a class="el" href="classFuncionario.html">Funcionario</a>)</td><td class="entry"><a class="el" href="classFuncionario.html">Funcionario</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>~Funcionario</b>() (definido(a) em <a class="el" href="classFuncionario.html">Funcionario</a>)</td><td class="entry"><a class="el" href="classFuncionario.html">Funcionario</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Quinta, 27 de Abril de 2017 17:36:12 para Laboratorio 5 por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sábado, 29 de Abril de 2017 14:35:14 para Laboratorio 5 por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

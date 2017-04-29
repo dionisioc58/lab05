@@ -1,5 +1,5 @@
 
-Corrida de Sapos                         {#mainpage}
+Laboratório 05                         {#mainpage}
 ============
 
 OBJETIVO

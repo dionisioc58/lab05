@@ -6,6 +6,19 @@ Empresa::Empresa() {
     qtde = 0;
 }
 
+Empresa::Empresa(Empresa &e) {
+    nome = e.getNome();
+    cnpj = e.getCnpj();
+    qtde = e.getQtde();
+    funcionarios = new Funcionario[e.getQtde()];
+    funcionarios = e.getFuncionarios();
+}
+
+Empresa::~Empresa() {
+    if(qtde > 0)
+        delete[] funcionarios;
+}
+
 string Empresa::getNome() {
     return nome;
 }
@@ -34,18 +47,16 @@ bool Empresa::addFuncionario(Funcionario f) {
     if(pertenceQuadro(f.getNome())) 
         return false;
 
-    if(qtde > 0) {
-        //Se já tem funcionários, aumenta o vetor, copia a antiga lista para um novo maior
-        Funcionario *resize_arr = new Funcionario[qtde + 1];
-        for(int i = 0; i < (qtde); i++)
-            resize_arr[i] = funcionarios[i];
-        funcionarios = resize_arr;
-        delete[] resize_arr;
-    } else //Se não, basta criar um vetor com um elemento
-        funcionarios = new Funcionario[1];
+    //Cria um vetor maior
+    Funcionario *arr = new Funcionario[qtde + 1];
 
-    funcionarios[qtde] = f;  //Guarda o elemento informado
-    ++qtde;                  //Incrementa a quantidade de funcionarios
+    //Se já tem funcionários, copia a antiga lista para um novo maior
+    for(int i = 0; i < qtde; i++)
+        arr[i] = funcionarios[i];
+    
+    funcionarios = arr;     //Vetor antigo recebe a nova lista
+    funcionarios[qtde++] = f;  //Guarda o elemento informado e incrementa a quantidade de funcionarios
+    
     return true;
 }
 
