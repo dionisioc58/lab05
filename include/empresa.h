@@ -24,6 +24,7 @@
         int getQtde();
         Funcionario *getFuncionarios();
         bool addFuncionario(Funcionario f);
+        bool delFuncionario(Funcionario f);
         bool pertenceQuadro(string n);
     };
 

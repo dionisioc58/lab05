@@ -51,6 +51,14 @@
     Empresa *cadEmpresa(Empresa *e, int &n);
 
     /**
+    * @brief        Função que remove uma empresa do cadastro
+    * @param[in]    *e Vetor de empresas do cadastro
+    * @param[inout] n Número de empresas no cadastro
+    * @return       Retorna o novo vetor de empresas após a exclusão
+    */
+    Empresa *delEmpresa(Empresa *e, int &n);
+
+    /**
     * @brief        Função que adiciona um funcionário à uma empresa (apresenta escolha)
     * @param[in]    *e Vetor de empresas do cadastro
     * @param[in]    n Número de empresas no cadastro
@@ -59,22 +67,32 @@
     Empresa *addFunc(Empresa *e, int n);
 
     /**
-    * @brief        Função que imprime as empresas no cadastro
+    * @brief        Função que remove um funcionário de uma empresa (apresenta escolha)
     * @param[in]    *e Vetor de empresas do cadastro
     * @param[in]    n Número de empresas no cadastro
+    * @return       Retorna o novo vetor de empresas após o cadastro
     */
-    void impEmpresas(Empresa *e, int n);
+    Empresa *delFunc(Empresa *e, int n);
+
+    /**
+    * @brief        Função que imprime as empresas no cadastro
+    * @param[in]    *e Vetor de empresas do cadastro
+    * @param[in]    pausa True para apresentar uma pausa após a impressão
+    * @param[in]    n Número de empresas no cadastro
+    */
+    void impEmpresas(Empresa *e, int n, bool pausa = true);
 
     /**
     * @brief        Função que imprime a lista de funcionários de uma ou todas 
                     as empresas do cadastro
-    * @param[in]    *e Vetor de empresas do cadastro
+    * @param[inout] *e Vetor de empresas do cadastro
     * @param[in]    n Número de empresas no cadastro
     * @param[in]    all "true" imprime todos os funcionários de todas as empresas
                     "false" imprime apenas os funcionários de uma empresa (apresenta escolha)
-    * @return       Retorna o novo vetor de empresas após o cadastro
+    * @param[in]    pausa True para apresentar uma pausa após a impressão
+    * @return       -1 ou o número da empresa selecionada
     */
-    void impFunc(Empresa *e, int n, bool all = true);
+    int impFunc(Empresa *e, int n, bool all = true, bool pausa = true);
 
     /**
     * @brief        Função que salva o cadastro completo em arquivo

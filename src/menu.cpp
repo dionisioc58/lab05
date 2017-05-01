@@ -17,15 +17,17 @@ int showMenuEmp() {
     cout << "\t\t|          DDA - Cadastro de Empresas              |" << endl;
     cout << "\t\t|                                                  |" << endl;
     cout << "\t\t|      (1) Cadastrar uma empresa                   |" << endl;
-    cout << "\t\t|      (2) Listar as empresas                      |" << endl;
+    cout << "\t\t|      (2) Excluir uma empresa                     |" << endl;
+    cout << "\t\t|      (3) Listar as empresas                      |" << endl;
     cout << "\t\t|                                                  |" << endl;
-    cout << "\t\t|      (3) Cadastrar um funcionário                |" << endl;
+    cout << "\t\t|      (4) Cadastrar um funcionário                |" << endl;
+    cout << "\t\t|      (5) Excluir um funcionário                  |" << endl;
     cout << "\t\t|                                                  |" << endl;
-    cout << "\t\t|      (4) Listar funcionários de uma empresa      |" << endl;
-    cout << "\t\t|      (5) Listar funcionários de todas as empresas|" << endl;
+    cout << "\t\t|      (6) Listar funcionários de uma empresa      |" << endl;
+    cout << "\t\t|      (7) Listar funcionários de todas as empresas|" << endl;
     cout << "\t\t|                                                  |" << endl;
-    cout << "\t\t|      (6) Salvar o cadastro em um arquivo         |" << endl;
-    cout << "\t\t|      (7) Recuperar o cadastro em um arquivo      |" << endl;
+    cout << "\t\t|      (8) Salvar o cadastro em um arquivo         |" << endl;
+    cout << "\t\t|      (9) Recuperar o cadastro em um arquivo      |" << endl;
     cout << "\t\t|      (0) Sair                                    |" << endl;
     cout << "\t\t|                                                  |" << endl;
     cout << "\t\t|**************************************************|" << endl;
@@ -33,8 +35,8 @@ int showMenuEmp() {
     int opcao = 0;
     do {
         opcao = recebeInt(": ", 0);
-        if((opcao < 0) || (opcao > 7))
+        if((opcao < 0) || (opcao > 9))
             cout << "Valor inválido!" << endl;
-    } while ((opcao < 0) || (opcao > 7));
+    } while ((opcao < 0) || (opcao > 9));
     return opcao;
 }

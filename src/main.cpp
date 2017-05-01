@@ -33,22 +33,31 @@ int main(int argc, char* argv[]) {
             case 1:             //Cadastrar uma empresa
                 emp = cadEmpresa(emp, qtdemp);
                 break;
-            case 2:             //Listar as empresas
+            case 2:             //Excluir uma empresa
+                emp = delEmpresa(emp, qtdemp);
+                break;
+            case 3:             //Listar as empresas
                 impEmpresas(emp, qtdemp);
                 break;
-            case 3:             //Adicionar um funcionário
+
+            case 4:             //Adicionar um funcionário
                 emp = addFunc(emp, qtdemp);
                 break;
-            case 4:             //Listar os funcionários de uma empresa
+            case 5:             //Remover um funcionário
+                emp = delFunc(emp, qtdemp);
+                break;
+
+            case 6:             //Listar os funcionários de uma empresa
                 impFunc(emp, qtdemp, false);
                 break;
-            case 5:             //Listar todos os funcionários de todas as empresas
+            case 7:             //Listar todos os funcionários de todas as empresas
                 impFunc(emp, qtdemp, true);
                 break;
-            case 6:             //Salvar o banco de dados
+
+            case 8:             //Salvar o banco de dados
                 salvar("./data/banco.dat", emp, qtdemp); 
                 break;
-            case 7:             //Recuperar o banco
+            case 9:             //Recuperar o banco
                 abrir("./data/banco.dat", emp, qtdemp); 
                 break;
         }

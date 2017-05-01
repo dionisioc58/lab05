@@ -60,6 +60,27 @@ bool Empresa::addFuncionario(Funcionario f) {
     return true;
 }
 
+bool Empresa::delFuncionario(Funcionario f) {
+    if(!pertenceQuadro(f.getNome())) 
+        return false;
+
+    //Cria um vetor maior
+    Funcionario *arr = new Funcionario[qtde - 1];
+
+    //Se já tem funcionários, copia a antiga lista para uma nova menor
+    int j = 0;
+    for(int i = 0; i < (qtde - 1); i++) {
+        if(funcionarios[j].getNome() == f.getNome())    //Se é o funcionário à remover, salte para o próximo
+            j++;
+        arr[i] = funcionarios[j];
+    }
+    
+    funcionarios = arr;     //Vetor antigo recebe a nova lista
+    qtde--;
+    
+    return true;
+}
+
 bool Empresa::pertenceQuadro(string n) {
     for(int i = 0; i < qtde; i++)
         if(funcionarios[i].getNome() == n)

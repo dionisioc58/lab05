@@ -83,6 +83,39 @@ Empresa *cadEmpresa(Empresa *e, int &n) {
 }
 
 /**
+* @brief        Função que remove uma empresa do cadastro
+* @param[in]    *e Vetor de empresas do cadastro
+* @param[inout] n Número de empresas no cadastro
+* @return       Retorna o novo vetor de empresas após a exclusão
+*/
+Empresa *delEmpresa(Empresa *e, int &n) {
+    if(n == 0)
+        return e;
+
+    impEmpresas(e, n, false);
+    int selecao = recebeInt("Digite o número da empresa para a remoção (0 para cancelar): ", 0);
+    if(selecao == 0)
+        return e;
+    selecao--;  //O usuário vai digitar o número com base em 1
+
+    if(selecao > (n - 1)) {
+        cout << "Seleção inválida!" << endl;
+        return e;
+    }
+
+    Empresa *r = new Empresa[n - 1];
+
+    //Se já tem empresas, diminui o vetor, copia a antiga lista para uma nova menor
+    int j = 0;
+    for(int i = 0; i < n; i++)
+        if(i != selecao)
+            r[j++] = Empresa(e[i]);
+
+    n--;
+    return r;
+}
+
+/**
 * @brief        Função que adiciona um funcionário à uma empresa (apresenta escolha)
 * @param[in]    *e Vetor de empresas do cadastro
 * @param[in]    n Número de empresas no cadastro
@@ -92,7 +125,7 @@ Empresa *addFunc(Empresa *e, int n) {
     if(n == 0)
         return e;
 
-    impEmpresas(e, n);
+    impEmpresas(e, n, false);
     int selecao = recebeInt("Digite o número da empresa para a adição (0 para cancelar): ", 0);
     if(selecao == 0)
         return e;
@@ -104,58 +137,95 @@ Empresa *addFunc(Empresa *e, int n) {
 }
 
 /**
+* @brief        Função que remove um funcionário de uma empresa (apresenta escolha)
+* @param[in]    *e Vetor de empresas do cadastro
+* @param[in]    n Número de empresas no cadastro
+* @return       Retorna o novo vetor de empresas após o cadastro
+*/
+Empresa *delFunc(Empresa *e, int n) {
+    if(n == 0)
+        return e;
+
+    int empsel = impFunc(e, n, false, false); //Captura a empresa selecionada
+    int selecao = recebeInt("Digite o número do funcionário à remover (0 para cancelar): ", 0);
+    if(selecao == 0)
+        return e;
+    selecao--;  //O usuário vai digitar o número com base em 1
+
+    Funcionario *f = e[empsel].getFuncionarios();
+    if(!e[selecao].delFuncionario(f[selecao]))
+        cout << "Não foi possível remover!" << endl;
+    return e;
+}
+
+/**
 * @brief        Função que imprime as empresas no cadastro
 * @param[in]    *e Vetor de empresas do cadastro
 * @param[in]    n Número de empresas no cadastro
+* @param[in]    pausa True para apresentar uma pausa após a impressão
 */
-void impEmpresas(Empresa *e, int n) {
+void impEmpresas(Empresa *e, int n, bool pausa) {
     cout << "Lista de empresas cadastradas: " << endl;
     for(int i = 0; i < n; i++)
         cout << "-- (" << (i + 1) << ") " << e[i].getNome() << " - CNPJ = " << e[i].getCnpj() << endl;
     cout << endl;
-    cout << "Pressione ENTER para continuar...";
-    string pausa;
-    getline(cin, pausa);
+    if(pausa) {
+        cout << "Pressione ENTER para continuar...";
+        string pausa;
+        getline(cin, pausa);
+    }
 }
 
 /**
 * @brief        Função que imprime a lista de funcionários de uma ou todas 
                 as empresas do cadastro
-* @param[in]    *e Vetor de empresas do cadastro
+* @param[inout] *e Vetor de empresas do cadastro
 * @param[in]    n Número de empresas no cadastro
 * @param[in]    all "true" imprime todos os funcionários de todas as empresas
                 "false" imprime apenas os funcionários de uma empresa (apresenta escolha)
-* @return       Retorna o novo vetor de empresas após o cadastro
+* @param[in]    pausa True para apresentar uma pausa após a impressão
+* @return       -1 ou o número da empresa selecionada
 */
-void impFunc(Empresa *e, int n, bool all) {
+int impFunc(Empresa *e, int n, bool all, bool pausa) {
     if(n == 0)
-        return;
+        return -1;
     if(!all) {
-        impEmpresas(e, n);
+        impEmpresas(e, n, false);
         int selecao = recebeInt("Digite o número da empresa (0 para cancelar): ", 0);
         if(selecao == 0)
-            return;
+            return -1;
         selecao--;  //O usuário vai digitar o número com base em 1
         if(e[selecao].getQtde() > 0) {
             cout << "Funcionários da empresa " << e[selecao].getNome() << endl;
             Funcionario *f = e[selecao].getFuncionarios();
             for(int i = 0; i < e[selecao].getQtde(); i++)
-                cout << "-----> " << f[i].getNome() << " - R$ " << f[i].getSalario() << endl;
+                cout << "---- (" << (i + 1) << ") " << f[i].getNome() << " - R$ " << f[i].getSalario() << endl;
         } else
             cout << "Nenhum funcionário na empresa selecionada." << endl;
+        
+        if(pausa) {
+            cout << "Pressione ENTER para continuar...";
+            string pausa;
+            getline(cin, pausa);
+        }
+        return selecao;
     } else {
         for(int j = 0; j < n; j++) {
             if(e[j].getQtde() > 0) {
                 cout << "Funcionários da empresa " << e[j].getNome() << endl;
                 Funcionario *f = e[j].getFuncionarios();
                 for(int i = 0; i < e[j].getQtde(); i++)
-                    cout << "-----> " << f[i].getNome() << " - R$ " << f[i].getSalario() << endl;
+                    cout << "---- (" << (i + 1) << ") " << f[i].getNome() << " - R$ " << f[i].getSalario() << endl;
             }
         }
+        
+        if(pausa) {
+            cout << "Pressione ENTER para continuar...";
+            string pausa;
+            getline(cin, pausa);
+        }
+        return -1;
     }
-    cout << "Pressione ENTER para continuar...";
-    string pausa;
-    getline(cin, pausa);
 }
 
 /**
@@ -171,7 +241,7 @@ void salvar(string nome, Empresa *e, int n) {
 /**
 * @brief        Função que recupera o cadastro completo a partir de um arquivo
 * @param[in]    nome Caminho/nome do arquivo de dados
-* @param[in]    *e Vetor de empresas do cadastro
+* @param[inout] *e Vetor de empresas do cadastro
 * @param[in]    n Número de empresas no cadastro
 */
 void abrir(string nome, Empresa *e, int n) {
