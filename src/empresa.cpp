@@ -6,13 +6,13 @@ Empresa::Empresa() {
     qtde = 0;
 }
 
-Empresa::Empresa(Empresa &e) {
+/*Empresa::Empresa(Empresa &e) {
     nome = e.getNome();
     cnpj = e.getCnpj();
     qtde = e.getQtde();
     funcionarios = new Funcionario[e.getQtde()];
     funcionarios = e.getFuncionarios();
-}
+}*/
 
 Empresa::~Empresa() {
     if(qtde > 0)

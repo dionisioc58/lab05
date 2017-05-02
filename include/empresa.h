@@ -15,7 +15,7 @@
         int qtde;
     public:
         Empresa();
-        Empresa(Empresa &e);
+        //Empresa(Empresa &e);
         ~Empresa();
         string getNome();
         void setNome(string n);

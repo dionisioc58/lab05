@@ -32,7 +32,8 @@ Empresa *inputEmpresa() {
 Funcionario *inputFuncionario() {
     //Coleta dados do funcionário
     string input;
-    Funcionario *novo = new Funcionario[1];
+    Funcionario *novo;
+    novo = new Funcionario[1];
     cout << "Digite o nome do funcionário: ";
     getline(cin, input);
     novo[0].setNome(input);
@@ -74,7 +75,7 @@ Empresa *cadEmpresa(Empresa *e, int &n) {
     
     //Se já tem empresas, aumenta o vetor, copia a antiga lista para um novo maior
     for(int i = 0; i < n; i++)
-        r[i] = Empresa(e[i]);
+        r[i] = e[i];
     delete[] e;
 
     r[n++] = nova[0]; //Guarda o elemento informado
@@ -109,8 +110,9 @@ Empresa *delEmpresa(Empresa *e, int &n) {
     int j = 0;
     for(int i = 0; i < n; i++)
         if(i != selecao)
-            r[j++] = Empresa(e[i]);
+            r[j++] = e[i];
 
+    delete[] e;
     n--;
     return r;
 }
@@ -133,6 +135,7 @@ Empresa *addFunc(Empresa *e, int n) {
 
     Funcionario *f = inputFuncionario();
     e[selecao].addFuncionario(f[0]);
+    delete[] f;
     return e;
 }
 
@@ -155,6 +158,7 @@ Empresa *delFunc(Empresa *e, int n) {
     Funcionario *f = e[empsel].getFuncionarios();
     if(!e[selecao].delFuncionario(f[selecao]))
         cout << "Não foi possível remover!" << endl;
+    delete[] f;
     return e;
 }
 
@@ -200,6 +204,7 @@ int impFunc(Empresa *e, int n, bool all, bool pausa) {
             Funcionario *f = e[selecao].getFuncionarios();
             for(int i = 0; i < e[selecao].getQtde(); i++)
                 cout << "---- (" << (i + 1) << ") " << f[i].getNome() << " - R$ " << f[i].getSalario() << endl;
+
         } else
             cout << "Nenhum funcionário na empresa selecionada." << endl;
         
@@ -210,10 +215,11 @@ int impFunc(Empresa *e, int n, bool all, bool pausa) {
         }
         return selecao;
     } else {
+        Funcionario *f;
         for(int j = 0; j < n; j++) {
             if(e[j].getQtde() > 0) {
                 cout << "Funcionários da empresa " << e[j].getNome() << endl;
-                Funcionario *f = e[j].getFuncionarios();
+                f = e[j].getFuncionarios();
                 for(int i = 0; i < e[j].getQtde(); i++)
                     cout << "---- (" << (i + 1) << ") " << f[i].getNome() << " - R$ " << f[i].getSalario() << endl;
             }

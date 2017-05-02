@@ -111,8 +111,8 @@ int main() {
     int qtd = 0;
     emp = cadEmpresa(emp, qtd);
     cout << emp[0].getNome() << endl;
-    emp = cadEmpresa(emp, qtd);
-    cout << emp[0].getNome() << endl;
+    emp = addFunc(emp, qtd);
+    cout << emp[0].getFuncionarios()[0].getNome() << endl;
     delete[] emp;
     return 0;
 }
