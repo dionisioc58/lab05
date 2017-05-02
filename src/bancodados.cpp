@@ -66,19 +66,19 @@ bool existeEmpresa(Empresa *e, int n, Empresa *nova) {
 * @return       Retorna o novo vetor de empresas após o cadastro
 */
 Empresa *cadEmpresa(Empresa *e, int &n) {
-    Empresa *nova;
-    nova = inputEmpresa();
+    Empresa *nova = inputEmpresa();
     if(existeEmpresa(e, n, nova))
         return e;
 
     Empresa *r = new Empresa[n + 1];
-
+    
     //Se já tem empresas, aumenta o vetor, copia a antiga lista para um novo maior
     for(int i = 0; i < n; i++)
         r[i] = Empresa(e[i]);
-    //delete[] r;
+    delete[] e;
 
     r[n++] = nova[0]; //Guarda o elemento informado
+    delete[] nova;
     return r;
 }
 

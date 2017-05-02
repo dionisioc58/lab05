@@ -6,9 +6,10 @@ using std::endl;
 #include "funcionario.h"
 #include "empresa.h"
 #include "menu.h"
+#include "bancodados.h"
 
 int main() {
-    int qtd = 2;
+    /*int qtd = 0;
     Empresa *emp = new Empresa[qtd];
     emp[0].setNome("Dio");
     emp[0].setCnpj("123");
@@ -91,7 +92,7 @@ int main() {
     }
     cout << "Fim" << endl;
 
-    /*qtd = 1;
+    qtd = 1;
     array = new Empresa[qtd];
     for(int i = 0; i < (qtd); i++)
         array[i] = Empresa(emp[i]);
@@ -106,5 +107,12 @@ int main() {
     }
     cout << "Fim" << endl;*/
 
+    Empresa *emp = NULL;
+    int qtd = 0;
+    emp = cadEmpresa(emp, qtd);
+    cout << emp[0].getNome() << endl;
+    emp = cadEmpresa(emp, qtd);
+    cout << emp[0].getNome() << endl;
+    delete[] emp;
     return 0;
 }

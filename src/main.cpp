@@ -28,6 +28,7 @@ int main(int argc, char* argv[]) {
     while(1) {
         switch(showMenuEmp()) { //Exibir o menu
             case 0:             //Sair
+                delete[] emp;
                 return 0;
                 break;
             case 1:             //Cadastrar uma empresa
@@ -62,6 +63,7 @@ int main(int argc, char* argv[]) {
                 break;
         }
     }
-
+    
+    delete[] emp;
     return 0;
 }
