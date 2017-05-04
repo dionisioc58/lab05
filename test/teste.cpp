@@ -12,12 +12,12 @@ using std::endl;
 
 int main() {
     //std::locale::global(std::locale("ja_JP.utf8"));
-    /*std::time_t t = std::time(NULL);
+    std::time_t t = std::time(NULL);
     char mbstr[100];
     if (std::strftime(mbstr, sizeof(mbstr), "%d/%m/%Y %H:%M:%S", std::localtime(&t))) {
         std::cout << "Agora: " << mbstr << '\n';
     }
-    return 0;*/
+    return 0;
 
 
     /*int ano, mes, dia;
@@ -57,10 +57,10 @@ int main() {
     emp = addFunc(emp, qtd);
 
     /*cout << "Del emp 1" << endl;
-    emp = delEmpresa(emp, qtd);*/
+    emp = delEmpresa(emp, qtd);
     
     cout << "Del func 1" << endl;
-    emp = delFunc(emp, qtd);
+    emp = delFunc(emp, qtd);*/
     
     impFunc(emp, qtd, true, false);
 

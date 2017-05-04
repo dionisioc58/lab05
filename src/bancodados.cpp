@@ -74,8 +74,13 @@ Empresa *cadEmpresa(Empresa *e, int &n) {
     Empresa *r = new Empresa[n + 1];
     
     //Se já tem empresas, aumenta o vetor, copia a antiga lista para um novo maior
-    for(int i = 0; i < n; i++)
-        r[i] = e[i];
+    int j = 0;
+    for(int i = 0; i < n; i++) {
+        r[j].setNome(e[i].getNome());
+        r[j].setCnpj(e[i].getCnpj());
+        r[j].setFuncionarios(e[i].getFuncionarios(), e[i].getQtde());
+        j++;
+    }
     if(n > 0)
         delete[] e;
 
