@@ -1,0 +1,10 @@
+Add emp	 -> 	Dionísio CORP.	1234
+Add func -> 	Emp 1 Luís Eduardo 4500.43
+Add func ->	Emp 1 Pedro Emerick 500.12
+Aumento	 ->	Emp 1 10.2%
+Lista 9	 ->	ok
+Lista 7  ->	Emp 1 ok
+Add emp  ->	Daniel CO. 445454
+Lista 3	 ->	ok
+Add func ->	Emp 2 Airton Pe de galinha 340.55
+Lista 9	 ->	Falha de segmentação

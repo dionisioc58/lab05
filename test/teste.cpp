@@ -12,12 +12,12 @@ using std::endl;
 
 int main() {
     //std::locale::global(std::locale("ja_JP.utf8"));
-    std::time_t t = std::time(NULL);
+    /*std::time_t t = std::time(NULL);
     char mbstr[100];
     if (std::strftime(mbstr, sizeof(mbstr), "%d/%m/%Y %H:%M:%S", std::localtime(&t))) {
         std::cout << "Agora: " << mbstr << '\n';
     }
-    return 0;
+    return 0;*/
 
 
     /*int ano, mes, dia;
