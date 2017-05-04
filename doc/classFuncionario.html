@@ -62,6 +62,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Lista&#160;de&#160;Componentes</span></a></li>
       <li><a href="classes.html"><span>Índice&#160;dos&#160;Componentes</span></a></li>
+      <li><a href="functions.html"><span>Componentes&#160;Membros</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -69,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Todos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Arquivos</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Funções</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Amigas</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Páginas</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -82,6 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Métodos Públicos</a> &#124;
+<a href="#friends">Amigas</a> &#124;
 <a href="classFuncionario-members.html">Lista de todos os Membros</a>  </div>
   <div class="headertitle">
 <div class="title">Referência da Classe Funcionario</div>  </div>
@@ -90,9 +92,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Métodos Públicos</h2></td></tr>
-<tr class="memitem:a3813a12b719af91a3382b660ab235e5f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3813a12b719af91a3382b660ab235e5f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Funcionario</b> (<a class="el" href="classFuncionario.html">Funcionario</a> &amp;f)</td></tr>
-<tr class="separator:a3813a12b719af91a3382b660ab235e5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13f42e2a8cb0515371b49745e5830c4c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a13f42e2a8cb0515371b49745e5830c4c"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><b>getNome</b> ()</td></tr>
 <tr class="separator:a13f42e2a8cb0515371b49745e5830c4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -105,13 +104,108 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>getSalario</b> ()</t
 <tr class="memitem:a1f6c9be6eaac826e59dd4da4925c1477"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1f6c9be6eaac826e59dd4da4925c1477"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setSalario</b> (float s)</td></tr>
 <tr class="separator:a1f6c9be6eaac826e59dd4da4925c1477"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3d9f76a7c4a5c4d7d2744385b04ffee"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af3d9f76a7c4a5c4d7d2744385b04ffee"></a>
-std::chrono::system_clock::time_point&#160;</td><td class="memItemRight" valign="bottom"><b>getAdmissao</b> ()</td></tr>
-<tr class="separator:af3d9f76a7c4a5c4d7d2744385b04ffee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38ed965ab77a3fc2f474013d97965b39"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a38ed965ab77a3fc2f474013d97965b39"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setAdmissao</b> (std::chrono::system_clock::time_point a)</td></tr>
-<tr class="separator:a38ed965ab77a3fc2f474013d97965b39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ac96d41cb09e0713965aed1b6f5cd72"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1ac96d41cb09e0713965aed1b6f5cd72"></a>
+string&#160;</td><td class="memItemRight" valign="bottom"><b>getAdmissao</b> ()</td></tr>
+<tr class="separator:a1ac96d41cb09e0713965aed1b6f5cd72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad27ffd0f02c0cf49f55c3d3ddcfe91d9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad27ffd0f02c0cf49f55c3d3ddcfe91d9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setAdmissao</b> (string a)</td></tr>
+<tr class="separator:ad27ffd0f02c0cf49f55c3d3ddcfe91d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Amigas</h2></td></tr>
+<tr class="memitem:a75068fd48c8f22133083f1dd8038c2eb"><td class="memItemLeft" align="right" valign="top">ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFuncionario.html#a75068fd48c8f22133083f1dd8038c2eb">operator&lt;&lt;</a> (ostream &amp;os, <a class="el" href="classFuncionario.html">Funcionario</a> &amp;f)</td></tr>
+<tr class="separator:a75068fd48c8f22133083f1dd8038c2eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad350cffa45291b210634355e8c1940eb"><td class="memItemLeft" align="right" valign="top">istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFuncionario.html#ad350cffa45291b210634355e8c1940eb">operator&gt;&gt;</a> (istream &amp;is, <a class="el" href="classFuncionario.html">Funcionario</a> &amp;f)</td></tr>
+<tr class="memdesc:ad350cffa45291b210634355e8c1940eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador de inserção em stream.  <a href="#ad350cffa45291b210634355e8c1940eb">Mais...</a><br /></td></tr>
+<tr class="separator:ad350cffa45291b210634355e8c1940eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Amigas e Funções Relacionadas</h2>
+<a class="anchor" id="a75068fd48c8f22133083f1dd8038c2eb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ostream&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classFuncionario.html">Funcionario</a> &amp;&#160;</td>
+          <td class="paramname"><em>f</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>O operador é sobrecarregado para representar a empresa e seus funcionários </p><dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">os</td><td>Referência para stream de saída </td></tr>
+    <tr><td class="paramname">f</td><td>Referência para o objeto <a class="el" href="classFuncionario.html">Funcionario</a> a ser impresso </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Referência para stream de saída </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ad350cffa45291b210634355e8c1940eb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">istream&amp; operator&gt;&gt; </td>
+          <td>(</td>
+          <td class="paramtype">istream &amp;&#160;</td>
+          <td class="paramname"><em>is</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classFuncionario.html">Funcionario</a> &amp;&#160;</td>
+          <td class="paramname"><em>f</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sobrecarga do operador de inserção em stream. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">is</td><td>Referência para stream de entrada </td></tr>
+    <tr><td class="paramname">f</td><td>Referência para o objeto Funcionário a ser criado com base nos valores fornecidos </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Referência para stream de entrada </dd></dl>
+
+</div>
+</div>
 <hr/>A documentação para esta classe foi gerada a partir dos seguintes arquivos:<ul>
 <li>include/<a class="el" href="funcionario_8h_source.html">funcionario.h</a></li>
 <li>src/funcionario.cpp</li>
@@ -119,7 +213,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>setAdmissao</b> (std:
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Terça, 2 de Maio de 2017 16:43:19 para Laboratorio 5 por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Quinta, 4 de Maio de 2017 09:39:28 para Laboratorio 5 por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>

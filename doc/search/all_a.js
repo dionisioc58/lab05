@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['salvar',['salvar',['../bancodados_8h.html#add4c7aa6168c8a8fa330349298bf79e7',1,'salvar(string nome, Empresa *e, int n):&#160;bancodados.cpp'],['../bancodados_8cpp.html#add4c7aa6168c8a8fa330349298bf79e7',1,'salvar(string nome, Empresa *e, int n):&#160;bancodados.cpp']]],
-  ['showmenuemp',['showMenuEmp',['../menu_8h.html#abda9eefeae2e82815c5470fa80aa2fd0',1,'showMenuEmp():&#160;menu.cpp'],['../menu_8cpp.html#abda9eefeae2e82815c5470fa80aa2fd0',1,'showMenuEmp():&#160;menu.cpp']]]
+  ['recebefloat',['recebeFloat',['../funcoes_8h.html#ad50ffdcfecc6907b77dfd91f5bdb8955',1,'recebeFloat(string msg, int min):&#160;funcoes.cpp'],['../funcoes_8cpp.html#ad50ffdcfecc6907b77dfd91f5bdb8955',1,'recebeFloat(string msg, int min):&#160;funcoes.cpp']]],
+  ['recebeint',['recebeInt',['../funcoes_8h.html#a2086a7c3272ac3b2a64478893d4b790e',1,'recebeInt(string msg, int min):&#160;funcoes.cpp'],['../funcoes_8cpp.html#a2086a7c3272ac3b2a64478893d4b790e',1,'recebeInt(string msg, int min):&#160;funcoes.cpp']]]
 ];

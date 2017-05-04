@@ -47,18 +47,24 @@ int main(int argc, char* argv[]) {
             case 5:             //Remover um funcionário
                 emp = delFunc(emp, qtdemp);
                 break;
+            case 6:             //Dar aumento
+                emp = aumento(emp, qtdemp);
+                break;
 
-            case 6:             //Listar os funcionários de uma empresa
+            case 7:             //Listar os funcionários de uma empresa
                 impFunc(emp, qtdemp, false);
                 break;
-            case 7:             //Listar todos os funcionários de todas as empresas
+            case 8:             //Listar os funcionários em experiência
+                impFunc(emp, qtdemp, false);
+                break;
+            case 9:             //Listar todos os funcionários de todas as empresas
                 impFunc(emp, qtdemp, true);
                 break;
 
-            case 8:             //Salvar o banco de dados
+            case 10:            //Salvar o banco de dados
                 salvar("./data/banco.dat", emp, qtdemp); 
                 break;
-            case 9:             //Recuperar o banco
+            case 11:            //Recuperar o banco
                 abrir("./data/banco.dat", emp, qtdemp); 
                 break;
         }

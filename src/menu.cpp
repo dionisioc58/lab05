@@ -22,12 +22,14 @@ int showMenuEmp() {
     cout << "\t\t|                                                  |" << endl;
     cout << "\t\t|      (4) Cadastrar um funcionário                |" << endl;
     cout << "\t\t|      (5) Excluir um funcionário                  |" << endl;
+    cout << "\t\t|      (6) Dar aumento aos funcionários            |" << endl;
     cout << "\t\t|                                                  |" << endl;
-    cout << "\t\t|      (6) Listar funcionários de uma empresa      |" << endl;
-    cout << "\t\t|      (7) Listar funcionários de todas as empresas|" << endl;
+    cout << "\t\t|      (7) Listar funcionários                     |" << endl;
+    cout << "\t\t|      (8) Listar funcionários em experiência      |" << endl;
+    cout << "\t\t|      (9) Listar funcionários de todas as empresas|" << endl;
     cout << "\t\t|                                                  |" << endl;
-    cout << "\t\t|      (8) Salvar o cadastro em um arquivo         |" << endl;
-    cout << "\t\t|      (9) Recuperar o cadastro em um arquivo      |" << endl;
+    cout << "\t\t|      (10) Salvar o cadastro em um arquivo        |" << endl;
+    cout << "\t\t|      (11) Recuperar o cadastro em um arquivo     |" << endl;
     cout << "\t\t|      (0) Sair                                    |" << endl;
     cout << "\t\t|                                                  |" << endl;
     cout << "\t\t|**************************************************|" << endl;
@@ -35,8 +37,8 @@ int showMenuEmp() {
     int opcao = 0;
     do {
         opcao = recebeInt(": ", 0);
-        if((opcao < 0) || (opcao > 9))
+        if((opcao < 0) || (opcao > 11))
             cout << "Valor inválido!" << endl;
-    } while ((opcao < 0) || (opcao > 9));
+    } while ((opcao < 0) || (opcao > 11));
     return opcao;
 }

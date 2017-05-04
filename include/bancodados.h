@@ -75,6 +75,15 @@
     Empresa *delFunc(Empresa *e, int n);
 
     /**
+    * @brief        Função que solicita um valor (percentual) e uma empresa (apresenta escolha)
+    *               para dar um aumento à todos os seus funcionários
+    * @param[in]    *e Vetor de empresas do cadastro
+    * @param[in]    n Número de empresas no cadastro
+    * @return       Retorna o novo vetor de empresas após o cadastro
+    */
+    Empresa *aumento(Empresa *e, int n);
+
+    /**
     * @brief        Função que imprime as empresas no cadastro
     * @param[in]    *e Vetor de empresas do cadastro
     * @param[in]    pausa True para apresentar uma pausa após a impressão

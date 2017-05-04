@@ -3,6 +3,7 @@
 Funcionario::Funcionario() {
     nome = "";
     salario = 0;
+    admissao = "";
 }
 
 /*Funcionario::Funcionario(Funcionario &f) {
@@ -27,10 +28,34 @@ void Funcionario::setSalario(float s) {
     salario = s;
 }
 
-std::chrono::system_clock::time_point Funcionario::getAdmissao() {
+string Funcionario::getAdmissao() {
     return admissao;
 }
 
-void Funcionario::setAdmissao(std::chrono::system_clock::time_point a) {
+void Funcionario::setAdmissao(string a) {
     admissao = a;
+}
+
+/** 
+* @details O operador é sobrecarregado para representar a empresa e seus funcionários
+* @param	os Referência para stream de saída
+* @param	f Referência para o objeto Funcionario a ser impresso
+* @return	Referência para stream de saída
+*/
+ostream& operator<<(ostream& os, Funcionario &f) {
+	os << "Nome: " << f.nome << "\t| ";
+	os << "Salário: " << f.salario << "\t| ";
+    os << "Admissao: " << f.admissao;
+	return os;
+}
+
+/** 
+* @param	is Referência para stream de entrada
+* @param	f Referência para o objeto Funcionário a ser criado com base nos 
+*			valores fornecidos
+* @return	Referência para stream de entrada
+*/
+istream& operator>>(istream& is, Funcionario &f) {
+	is >> f.nome >> f.salario >> f.admissao;
+	return is;
 }

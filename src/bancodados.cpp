@@ -167,6 +167,32 @@ Empresa *delFunc(Empresa *e, int n) {
 }
 
 /**
+* @brief        Função que solicita um valor (percentual) e uma empresa (apresenta escolha)
+*               para dar um aumento à todos os seus funcionários
+* @param[in]    *e Vetor de empresas do cadastro
+* @param[in]    n Número de empresas no cadastro
+* @return       Retorna o novo vetor de empresas após o cadastro
+*/
+Empresa *aumento(Empresa *e, int n) {
+    if(n == 0)
+        return e;
+
+    impEmpresas(e, n, false);
+    int selecao = recebeInt("Digite o número da empresa para a adição (0 para cancelar): ", 0);
+    if(selecao == 0)
+        return e;
+    selecao--;  //O usuário vai digitar o número com base em 1
+
+    float add = recebeFloat("Digite o valor do percentual de aumento: ", 0);
+    if(add <= 0)
+        return e;
+
+    e[selecao].aumento(add);
+
+    return e;
+}
+
+/**
 * @brief        Função que imprime as empresas no cadastro
 * @param[in]    *e Vetor de empresas do cadastro
 * @param[in]    n Número de empresas no cadastro

@@ -107,3 +107,31 @@ bool Empresa::pertenceQuadro(string n) {
             return true;
     return false;
 }
+
+void Empresa::aumento(float percentual) {
+    for(int i = 0; i < qtde; i++)
+        funcionarios[i].setSalario(funcionarios[i].getSalario() * (1 + (percentual/100)));
+}
+
+/** 
+* @details O operador é sobrecarregado para representar a empresa e seus funcionários
+* @param	os Referência para stream de saída
+* @param	e Referência para o objeto Empresa a ser impresso
+* @return	Referência para stream de saída
+*/
+ostream& operator<<(ostream& os, Empresa &e) {
+	os << "Nome: " << e.nome << " - ";
+	os << "CNPJ: " << e.cnpj;
+	return os;
+}
+
+/** 
+* @param	is Referência para stream de entrada
+* @param	e Referência para o objeto Empresa a ser criado com base nos 
+*			valores fornecidos
+* @return	Referência para stream de entrada
+*/
+istream& operator>>(istream& is, Empresa &e) {
+	is >> e.nome >> e.cnpj;
+	return is;
+}

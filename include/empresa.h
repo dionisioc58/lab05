@@ -28,6 +28,9 @@
         bool addFuncionario(Funcionario *f);
         bool delFuncionario(int f);
         bool pertenceQuadro(string n);
+        void aumento(float percentual);
+		friend ostream& operator<<(ostream& os, Empresa &e); /** @brief Sobrecarga do operador de inserção em stream */
+		friend istream& operator>>(istream& is, Empresa &e); /** @brief Sobrecarga do operador de extração de stream */
     };
 
-#endif // !FUNCIONARIO_H
+#endif
