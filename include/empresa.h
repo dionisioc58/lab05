@@ -23,8 +23,8 @@
         void setCnpj(string c);
         int getQtde();
         Funcionario *getFuncionarios();
-        bool addFuncionario(Funcionario f);
-        bool delFuncionario(Funcionario f);
+        bool addFuncionario(Funcionario *f);
+        bool delFuncionario(int f);
         bool pertenceQuadro(string n);
     };
 

@@ -43,8 +43,8 @@ Funcionario *Empresa::getFuncionarios() {
     return funcionarios;
 }
 
-bool Empresa::addFuncionario(Funcionario f) {
-    if(pertenceQuadro(f.getNome())) 
+bool Empresa::addFuncionario(Funcionario *f) {
+    if(pertenceQuadro(f->getNome())) 
         return false;
 
     //Cria um vetor maior
@@ -53,28 +53,31 @@ bool Empresa::addFuncionario(Funcionario f) {
     //Se já tem funcionários, copia a antiga lista para um novo maior
     for(int i = 0; i < qtde; i++)
         arr[i] = funcionarios[i];
+
+    if(qtde > 0)
+        delete[] funcionarios;
     
     funcionarios = arr;     //Vetor antigo recebe a nova lista
-    funcionarios[qtde++] = f;  //Guarda o elemento informado e incrementa a quantidade de funcionarios
+    funcionarios[qtde++] = f[0];  //Guarda o elemento informado e incrementa a quantidade de funcionarios
     
     return true;
 }
 
-bool Empresa::delFuncionario(Funcionario f) {
-    if(!pertenceQuadro(f.getNome())) 
+bool Empresa::delFuncionario(int f) {
+    if((f < 0) || (f >= qtde))
         return false;
 
-    //Cria um vetor maior
+    //Cria um vetor menor
     Funcionario *arr = new Funcionario[qtde - 1];
 
     //Se já tem funcionários, copia a antiga lista para uma nova menor
     int j = 0;
-    for(int i = 0; i < (qtde - 1); i++) {
-        if(funcionarios[j].getNome() == f.getNome())    //Se é o funcionário à remover, salte para o próximo
-            j++;
-        arr[i] = funcionarios[j];
+    for(int i = 0; i < qtde; i++) {
+        if(i != f)    //Se não é o funcionário à remover, copie
+            arr[j++] = funcionarios[i];
     }
-    
+    delete[] funcionarios;
+
     funcionarios = arr;     //Vetor antigo recebe a nova lista
     qtde--;
     

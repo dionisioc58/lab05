@@ -5,15 +5,11 @@ Funcionario::Funcionario() {
     salario = 0;
 }
 
-Funcionario::Funcionario(Funcionario &f) {
+/*Funcionario::Funcionario(Funcionario &f) {
     nome = f.getNome();
     salario = f.getSalario();
     admissao = f.getAdmissao();
-}
-
-Funcionario::~Funcionario() {
-    //VAZIO
-}
+}*/
 
 string Funcionario::getNome() {
     return nome;

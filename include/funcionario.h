@@ -12,8 +12,7 @@
         std::chrono::system_clock::time_point admissao;
     public:
         Funcionario();
-        Funcionario(Funcionario &f);
-        ~Funcionario();
+        //Funcionario(Funcionario &f);
         string getNome();
         void setNome(string n);
         float getSalario();

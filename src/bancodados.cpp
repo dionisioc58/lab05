@@ -32,12 +32,12 @@ Empresa *inputEmpresa() {
 Funcionario *inputFuncionario() {
     //Coleta dados do funcionário
     string input;
-    Funcionario *novo;
-    novo = new Funcionario[1];
+    Funcionario *novo = new Funcionario[1];
     cout << "Digite o nome do funcionário: ";
     getline(cin, input);
     novo[0].setNome(input);
-    novo[0].setSalario(recebeFloat("Digite o salário: ", 0));
+    float sal = recebeFloat("Digite o salário: ", 0);
+    novo[0].setSalario(sal);
     //novo[0].setAdmissao(now());
     return novo;
 }
@@ -76,7 +76,8 @@ Empresa *cadEmpresa(Empresa *e, int &n) {
     //Se já tem empresas, aumenta o vetor, copia a antiga lista para um novo maior
     for(int i = 0; i < n; i++)
         r[i] = e[i];
-    delete[] e;
+    if(n > 0)
+        delete[] e;
 
     r[n++] = nova[0]; //Guarda o elemento informado
     delete[] nova;
@@ -133,8 +134,9 @@ Empresa *addFunc(Empresa *e, int n) {
         return e;
     selecao--;  //O usuário vai digitar o número com base em 1
 
-    Funcionario *f = inputFuncionario();
-    e[selecao].addFuncionario(f[0]);
+    Funcionario *f;
+    f = inputFuncionario();
+    e[selecao].addFuncionario(f);
     delete[] f;
     return e;
 }
@@ -155,10 +157,8 @@ Empresa *delFunc(Empresa *e, int n) {
         return e;
     selecao--;  //O usuário vai digitar o número com base em 1
 
-    Funcionario *f = e[empsel].getFuncionarios();
-    if(!e[selecao].delFuncionario(f[selecao]))
+    if(!e[empsel].delFuncionario(selecao))
         cout << "Não foi possível remover!" << endl;
-    delete[] f;
     return e;
 }
 

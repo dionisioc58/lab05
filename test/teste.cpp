@@ -109,10 +109,26 @@ int main() {
 
     Empresa *emp = NULL;
     int qtd = 0;
+    cout << "Add empresa 1" << endl;
     emp = cadEmpresa(emp, qtd);
-    cout << emp[0].getNome() << endl;
+    
+    cout << "Add empresa 2" << endl;
+    emp = cadEmpresa(emp, qtd);
+    
+    cout << "Add func 1" << endl;
     emp = addFunc(emp, qtd);
-    cout << emp[0].getFuncionarios()[0].getNome() << endl;
+    
+    cout << "Add func 2" << endl;
+    emp = addFunc(emp, qtd);
+    
+    cout << "Del emp 1" << endl;
+    emp = delEmpresa(emp, qtd);
+    
+    cout << "Del func 1" << endl;
+    emp = delFunc(emp, qtd);
+    
+    impFunc(emp, qtd, true, false);
+
     delete[] emp;
     return 0;
 }
