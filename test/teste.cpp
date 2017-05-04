@@ -41,17 +41,23 @@ int main() {
     cout << "Add empresa 1" << endl;
     emp = cadEmpresa(emp, qtd);
     
-    cout << "Add empresa 2" << endl;
-    emp = cadEmpresa(emp, qtd);
-    
     cout << "Add func 1" << endl;
     emp = addFunc(emp, qtd);
     
     cout << "Add func 2" << endl;
     emp = addFunc(emp, qtd);
     
-    cout << "Del emp 1" << endl;
-    emp = delEmpresa(emp, qtd);
+    cout << "Aumento" << endl;
+    emp = aumento(emp, qtd);
+
+    cout << "Add empresa 2" << endl;
+    emp = cadEmpresa(emp, qtd);
+    
+    cout << "Add func 3" << endl;
+    emp = addFunc(emp, qtd);
+
+    /*cout << "Del emp 1" << endl;
+    emp = delEmpresa(emp, qtd);*/
     
     cout << "Del func 1" << endl;
     emp = delFunc(emp, qtd);
