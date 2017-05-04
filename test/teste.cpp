@@ -9,7 +9,34 @@ using std::endl;
 #include "bancodados.h"
 
 int main() {
-    /*int qtd = 0;
+
+    Empresa *emp = NULL;
+    int qtd = 0;
+    cout << "Add empresa 1" << endl;
+    emp = cadEmpresa(emp, qtd);
+    
+    cout << "Add empresa 2" << endl;
+    emp = cadEmpresa(emp, qtd);
+    
+    cout << "Add func 1" << endl;
+    emp = addFunc(emp, qtd);
+    
+    cout << "Add func 2" << endl;
+    emp = addFunc(emp, qtd);
+    
+    cout << "Del emp 1" << endl;
+    emp = delEmpresa(emp, qtd);
+    
+    cout << "Del func 1" << endl;
+    emp = delFunc(emp, qtd);
+    
+    impFunc(emp, qtd, true, false);
+
+    delete[] emp;
+    return 0;
+}
+
+/*int qtd = 0;
     Empresa *emp = new Empresa[qtd];
     emp[0].setNome("Dio");
     emp[0].setCnpj("123");
@@ -106,29 +133,3 @@ int main() {
         }
     }
     cout << "Fim" << endl;*/
-
-    Empresa *emp = NULL;
-    int qtd = 0;
-    cout << "Add empresa 1" << endl;
-    emp = cadEmpresa(emp, qtd);
-    
-    cout << "Add empresa 2" << endl;
-    emp = cadEmpresa(emp, qtd);
-    
-    cout << "Add func 1" << endl;
-    emp = addFunc(emp, qtd);
-    
-    cout << "Add func 2" << endl;
-    emp = addFunc(emp, qtd);
-    
-    cout << "Del emp 1" << endl;
-    emp = delEmpresa(emp, qtd);
-    
-    cout << "Del func 1" << endl;
-    emp = delFunc(emp, qtd);
-    
-    impFunc(emp, qtd, true, false);
-
-    delete[] emp;
-    return 0;
-}

@@ -6,11 +6,18 @@ Empresa::Empresa() {
     qtde = 0;
 }
 
+/*Empresa::Empresa(int f) {
+    nome = "";
+    cnpj = "";
+    qtde = f;
+    funcionarios = new Funcionario[f];
+}*/
+
 /*Empresa::Empresa(Empresa &e) {
     nome = e.getNome();
     cnpj = e.getCnpj();
     qtde = e.getQtde();
-    funcionarios = new Funcionario[e.getQtde()];
+    //funcionarios = new Funcionario[e.getQtde()];
     funcionarios = e.getFuncionarios();
 }*/
 
@@ -41,6 +48,16 @@ int Empresa::getQtde() {
 
 Funcionario *Empresa::getFuncionarios() {
     return funcionarios;
+}
+
+void Empresa::setFuncionarios(Funcionario *f, int n) {
+    funcionarios = new Funcionario[n];
+    for(int i = 0; i < n; i++) {
+        funcionarios[i].setNome(f[i].getNome());
+        funcionarios[i].setSalario(f[i].getSalario());
+        funcionarios[i].setAdmissao(f[i].getAdmissao());
+    }
+    qtde = n;
 }
 
 bool Empresa::addFuncionario(Funcionario *f) {

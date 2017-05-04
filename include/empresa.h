@@ -15,6 +15,7 @@
         int qtde;
     public:
         Empresa();
+        //Empresa(int f);
         //Empresa(Empresa &e);
         ~Empresa();
         string getNome();
@@ -23,6 +24,7 @@
         void setCnpj(string c);
         int getQtde();
         Funcionario *getFuncionarios();
+        void setFuncionarios(Funcionario *f, int n);
         bool addFuncionario(Funcionario *f);
         bool delFuncionario(int f);
         bool pertenceQuadro(string n);

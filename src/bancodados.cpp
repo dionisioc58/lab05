@@ -110,8 +110,12 @@ Empresa *delEmpresa(Empresa *e, int &n) {
     //Se já tem empresas, diminui o vetor, copia a antiga lista para uma nova menor
     int j = 0;
     for(int i = 0; i < n; i++)
-        if(i != selecao)
-            r[j++] = e[i];
+        if(i != selecao) {
+            r[j].setNome(e[i].getNome());
+            r[j].setCnpj(e[i].getCnpj());
+            r[j].setFuncionarios(e[i].getFuncionarios(), e[i].getQtde());
+            j++;
+        }
 
     delete[] e;
     n--;
