@@ -11,30 +11,29 @@ using std::endl;
 #include <iomanip>
 
 int main() {
-    //std::locale::global(std::locale("ja_JP.utf8"));
-    std::time_t t = std::time(NULL);
-    char mbstr[100];
-    if (std::strftime(mbstr, sizeof(mbstr), "%d/%m/%Y %H:%M:%S", std::localtime(&t))) {
-        std::cout << "Agora: " << mbstr << '\n';
-    }
+    Funcionario func[2];
+    func[0].setNome("Dionisio");
+    func[0].setSalario(333);
+    cout << func[0] << endl;
+
+    cin >> func[0];
+    cout << "Acabou 1" << endl;
+    cout << func[0] << endl;
+
+    cin >> func[1];
+    cout << func[1] << endl;
+
+    if(func[0].Experiencia())
+        cout << "Funcionário em período de experiência" << endl;
+    else
+        cout << "Funcionário contratado!" << endl;
+
+    if(func[1].Experiencia())
+        cout << "Funcionário em período de experiência" << endl;
+    else
+        cout << "Funcionário contratado!" << endl;
+
     return 0;
-
-
-    /*int ano, mes, dia;
-    cout << "digite o dia, o mês e o ano: ";
-    cin >> dia >> mes >> ano;
-    std::tm a = {0,0,0,dia,mes-1,ano-1900};
-    std::tm b = {0,0,0,4,4,117}; // July 5, 2004
-    std::time_t x = std::mktime(&a);
-    std::time_t y = std::mktime(&b);
-    if ( x != (std::time_t)(-1) && y != (std::time_t)(-1) )
-    {
-        double difference = std::difftime(y, x) / (60 * 60 * 24);
-        std::cout << std::cdate(&x);
-        std::cout << std::cdate(&y);
-        std::cout << "difference = " << difference << " days" << std::endl;
-    }
-    return 0;*/
 
     Empresa *emp = NULL;
     int qtd = 0;

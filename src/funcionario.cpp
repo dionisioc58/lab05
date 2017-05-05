@@ -3,7 +3,7 @@
 Funcionario::Funcionario() {
     nome = "";
     salario = 0;
-    admissao = "";
+    admissao = std::time(NULL);
 }
 
 /*Funcionario::Funcionario(Funcionario &f) {
@@ -28,12 +28,20 @@ void Funcionario::setSalario(float s) {
     salario = s;
 }
 
-string Funcionario::getAdmissao() {
+std::time_t Funcionario::getAdmissao() {
     return admissao;
 }
 
-void Funcionario::setAdmissao(string a) {
+void Funcionario::setAdmissao(std::time_t a) {
     admissao = a;
+}
+
+bool Funcionario::Experiencia() {
+    std::time_t agora = std::time(NULL);
+    double difference = std::difftime(agora, admissao) / (60 * 60 * 24);
+    if(difference > 90)
+        return false;
+    return true;
 }
 
 /** 
@@ -45,8 +53,11 @@ void Funcionario::setAdmissao(string a) {
 ostream& operator<<(ostream& os, Funcionario &f) {
 	os << "Nome: " << f.nome << "\t| ";
 	os << "Salário: " << f.salario << "\t| ";
-    os << "Admissao: " << f.admissao;
-	return os;
+    os << "Admissão: ";
+    char mbstr[20];
+    if (std::strftime(mbstr, sizeof(mbstr), "%d/%m/%Y", std::localtime(&f.admissao)))
+        os << mbstr;
+    return os;
 }
 
 /** 
@@ -56,6 +67,15 @@ ostream& operator<<(ostream& os, Funcionario &f) {
 * @return	Referência para stream de entrada
 */
 istream& operator>>(istream& is, Funcionario &f) {
-	is >> f.nome >> f.salario >> f.admissao;
-	return is;
+    string adm;
+	is >> f.nome >> f.salario >> adm;
+
+    int dia, mes, ano;
+    dia = stoi(adm.substr(0, 2));
+    mes = stoi(adm.substr(3, 2));
+    ano = stoi(adm.substr(6, 4));
+    std::tm a = {0, 0, 0, dia, mes - 1, ano - 1900};
+    f.admissao = std::mktime(&a);
+	
+    return is;
 }
