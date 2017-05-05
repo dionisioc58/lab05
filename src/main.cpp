@@ -31,41 +31,44 @@ int main(int argc, char* argv[]) {
                 delete[] emp;
                 return 0;
                 break;
-            case 1:             //Cadastrar uma empresa
+            case 1:              //Cadastrar uma empresa
                 emp = cadEmpresa(emp, qtdemp);
                 break;
-            case 2:             //Excluir uma empresa
+            case 2:              //Excluir uma empresa
                 emp = delEmpresa(emp, qtdemp);
                 break;
-            case 3:             //Listar as empresas
+            case 3:              //Listar as empresas
                 impEmpresas(emp, qtdemp);
                 break;
 
-            case 4:             //Adicionar um funcionário
+            case 4:              //Adicionar um funcionário
                 emp = addFunc(emp, qtdemp);
                 break;
-            case 5:             //Remover um funcionário
+            case 5:              //Adicionar funcionários através de um arquivo
+                emp = addFuncArq(emp, qtdemp);
+                break;
+            case 6:              //Remover um funcionário
                 emp = delFunc(emp, qtdemp);
                 break;
-            case 6:             //Dar aumento
+            case 7:              //Dar aumento
                 emp = aumento(emp, qtdemp);
                 break;
 
-            case 7:             //Listar os funcionários de uma empresa
+            case 8:              //Listar os funcionários de uma empresa
                 impFunc(emp, qtdemp, false);
                 break;
-            case 8:             //Listar os funcionários em experiência
+            case 9:              //Listar os funcionários em experiência
                 impFunc(emp, qtdemp, false);
                 break;
-            case 9:             //Listar todos os funcionários de todas as empresas
+            case 10:             //Listar todos os funcionários de todas as empresas
                 impFunc(emp, qtdemp, true);
                 break;
 
-            case 10:            //Salvar o banco de dados
-                salvar("./data/banco.dat", emp, qtdemp); 
+            case 11:            //Salvar o banco de dados
+                salvarBD("./data/banco.dat", emp, qtdemp); 
                 break;
-            case 11:            //Recuperar o banco
-                abrir("./data/banco.dat", emp, qtdemp); 
+            case 12:            //Recuperar o banco
+                abrirBD("./data/banco.dat", emp, qtdemp); 
                 break;
         }
     }

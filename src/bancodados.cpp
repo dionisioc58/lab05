@@ -151,6 +151,42 @@ Empresa *addFunc(Empresa *e, int n) {
 }
 
 /**
+* @brief        Função que adiciona funcionários à uma empresa (apresenta escolha),
+*               carregando-os apartir de um arquivo CSV
+* @param[in]    *e Vetor de empresas do cadastro
+* @param[in]    n Número de empresas no cadastro
+* @return       Retorna o novo vetor de empresas após o cadastro
+*/
+Empresa *addFuncArq(Empresa *e, int n) {
+    if(n == 0)
+        return e;
+
+    impEmpresas(e, n, false);
+    int selecao = recebeInt("Digite o número da empresa para a adição (0 para cancelar): ", 0);
+    if(selecao == 0)
+        return e;
+    selecao--;  //O usuário vai digitar o número com base em 1
+
+    string arquivo;
+    cout << "Digite o caminho/nome do arquivo à ser lido: ";
+    cin >> arquivo;
+    ifstream lista(arquivo);
+    if(!lista) {
+        cout << "Arquivo inválido/não encontrado!" << endl;
+        return e;
+    }
+    Funcionario f;
+    while(!lista.eof()) {
+        lista >> f;
+        if(f.getNome() != "\n")
+            e[selecao].addFuncionario(&f);
+    }
+    lista.close();
+
+    return e;
+}
+
+/**
 * @brief        Função que remove um funcionário de uma empresa (apresenta escolha)
 * @param[in]    *e Vetor de empresas do cadastro
 * @param[in]    n Número de empresas no cadastro
@@ -275,7 +311,7 @@ int impFunc(Empresa *e, int n, bool all, bool pausa) {
 * @param[in]    *e Vetor de empresas do cadastro
 * @param[in]    n Número de empresas no cadastro
 */
-void salvar(string nome, Empresa *e, int n) {
+void salvarBD(string nome, Empresa *e, int n) {
 
 }
 
@@ -285,6 +321,6 @@ void salvar(string nome, Empresa *e, int n) {
 * @param[inout] *e Vetor de empresas do cadastro
 * @param[in]    n Número de empresas no cadastro
 */
-void abrir(string nome, Empresa *e, int n) {
+void abrirBD(string nome, Empresa *e, int n) {
 
 }

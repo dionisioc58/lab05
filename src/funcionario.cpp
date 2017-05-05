@@ -68,7 +68,12 @@ ostream& operator<<(ostream& os, Funcionario &f) {
 */
 istream& operator>>(istream& is, Funcionario &f) {
     string adm;
-	is >> f.nome >> f.salario >> adm;
+    getline(is, f.nome, ';');
+    if(f.nome == "\n")
+        return is;
+    getline(is, adm, ';');
+    f.salario = stof(adm);
+    getline(is, adm);
 
     int dia, mes, ano;
     dia = stoi(adm.substr(0, 2));

@@ -14,6 +14,10 @@
     using std::cout;
     using std::endl;
 
+    #include <fstream>
+    using std::ifstream;
+    using std::ofstream;
+
     #include <string>
     using std::string;
 
@@ -67,6 +71,15 @@
     Empresa *addFunc(Empresa *e, int n);
 
     /**
+    * @brief        Função que adiciona funcionários à uma empresa (apresenta escolha),
+    *               carregando-os apartir de um arquivo CSV
+    * @param[in]    *e Vetor de empresas do cadastro
+    * @param[in]    n Número de empresas no cadastro
+    * @return       Retorna o novo vetor de empresas após o cadastro
+    */
+    Empresa *addFuncArq(Empresa *e, int n);
+
+    /**
     * @brief        Função que remove um funcionário de uma empresa (apresenta escolha)
     * @param[in]    *e Vetor de empresas do cadastro
     * @param[in]    n Número de empresas no cadastro
@@ -109,7 +122,7 @@
     * @param[in]    *e Vetor de empresas do cadastro
     * @param[in]    n Número de empresas no cadastro
     */
-    void salvar(string nome, Empresa *e, int n);
+    void salvarBD(string nome, Empresa *e, int n);
 
     /**
     * @brief        Função que recupera o cadastro completo a partir de um arquivo
@@ -117,6 +130,6 @@
     * @param[in]    *e Vetor de empresas do cadastro
     * @param[in]    n Número de empresas no cadastro
     */
-    void abrir(string nome, Empresa *e, int n);
+    void abrirBD(string nome, Empresa *e, int n);
 
 #endif

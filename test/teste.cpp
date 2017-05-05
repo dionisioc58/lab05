@@ -3,22 +3,27 @@ using std::cout;
 using std::cerr;
 using std::endl;
 
+#include <fstream>
+using std::ifstream;
+
 #include "funcionario.h"
 #include "empresa.h"
 #include "menu.h"
 #include "bancodados.h"
-#include <ctime>
-#include <iomanip>
 
 int main() {
-    Funcionario func[2];
-    func[0].setNome("Dionisio");
-    func[0].setSalario(333);
-    cout << func[0] << endl;
-
-    cin >> func[0];
-    cout << "Acabou 1" << endl;
-    cout << func[0] << endl;
+    /*Funcionario func[4];
+    
+    ifstream entrada("./data/funcionarios.txt");
+    if(!entrada)
+        return 0;
+    
+    for(int i = 0; i < 4; i++)
+        entrada >> func[i];
+    entrada.close();
+    
+    for(int i = 0; i < 4; i++)
+        cout << func[i] << endl;
 
     cin >> func[1];
     cout << func[1] << endl;
@@ -32,15 +37,19 @@ int main() {
         cout << "Funcionário em período de experiência" << endl;
     else
         cout << "Funcionário contratado!" << endl;
+        
+    return 0;*/
 
-    return 0;
 
     Empresa *emp = NULL;
     int qtd = 0;
     cout << "Add empresa 1" << endl;
     emp = cadEmpresa(emp, qtd);
+
+    cout << "Arquivo funcs" << endl;
+    emp = addFuncArq(emp, qtd);
     
-    cout << "Add func 1" << endl;
+    /*cout << "Add func 1" << endl;
     emp = addFunc(emp, qtd);
     
     cout << "Add func 2" << endl;
@@ -53,7 +62,7 @@ int main() {
     emp = cadEmpresa(emp, qtd);
     
     cout << "Add func 3" << endl;
-    emp = addFunc(emp, qtd);
+    emp = addFunc(emp, qtd);*/
 
     /*cout << "Del emp 1" << endl;
     emp = delEmpresa(emp, qtd);
