@@ -155,9 +155,10 @@ Empresa *addFunc(Empresa *e, int n) {
 *               carregando-os apartir de um arquivo CSV
 * @param[in]    *e Vetor de empresas do cadastro
 * @param[in]    n Número de empresas no cadastro
+* @param[in]    pausa True para apresentar uma pausa após a impressão do relatório de importação
 * @return       Retorna o novo vetor de empresas após o cadastro
 */
-Empresa *addFuncArq(Empresa *e, int n) {
+Empresa *addFuncArq(Empresa *e, int n, bool pausa) {
     if(n == 0)
         return e;
 
@@ -175,13 +176,28 @@ Empresa *addFuncArq(Empresa *e, int n) {
         cout << "Arquivo inválido/não encontrado!" << endl;
         return e;
     }
+
+    int linhas = 0, funcs = 0;
     Funcionario f;
     while(!lista.eof()) {
         lista >> f;
-        if(f.getNome() != "\n")
+        linhas++;
+        if(f.getNome() != "\n") {
             e[selecao].addFuncionario(&f);
+            funcs++;
+        }
     }
     lista.close();
+    cout << "Importação concluída com sucesso! " << endl;
+    cout << linhas << " linhas no arquivo." << endl;
+    cout << funcs << " funcionários cadastrados." << endl;
+
+    if(pausa) {
+        cin.ignore();
+        cout << "Pressione ENTER para continuar...";
+        string pausa;
+        getline(cin, pausa);
+    }
 
     return e;
 }
@@ -242,7 +258,7 @@ Empresa *aumento(Empresa *e, int n) {
 void impEmpresas(Empresa *e, int n, bool pausa) {
     cout << "Lista de empresas cadastradas: " << endl;
     for(int i = 0; i < n; i++)
-        cout << "-- (" << (i + 1) << ") " << e[i].getNome() << " - CNPJ = " << e[i].getCnpj() << endl;
+        cout << "-- (" << (i + 1) << ") " << e[i].getNome() << "\t CNPJ = " << e[i].getCnpj() << endl;
     cout << endl;
     if(pausa) {
         cout << "Pressione ENTER para continuar...";
@@ -274,7 +290,7 @@ int impFunc(Empresa *e, int n, bool all, bool pausa) {
             cout << "Funcionários da empresa " << e[selecao].getNome() << endl;
             Funcionario *f = e[selecao].getFuncionarios();
             for(int i = 0; i < e[selecao].getQtde(); i++)
-                cout << "---- (" << (i + 1) << ") " << f[i].getNome() << " - R$ " << f[i].getSalario() << endl;
+                cout << "   (" << (i + 1) << ") " << f[i] << endl;
 
         } else
             cout << "Nenhum funcionário na empresa selecionada." << endl;
@@ -292,7 +308,7 @@ int impFunc(Empresa *e, int n, bool all, bool pausa) {
                 cout << "Funcionários da empresa " << e[j].getNome() << endl;
                 f = e[j].getFuncionarios();
                 for(int i = 0; i < e[j].getQtde(); i++)
-                    cout << "---- (" << (i + 1) << ") " << f[i].getNome() << " - R$ " << f[i].getSalario() << endl;
+                    cout << "   (" << (i + 1) << ") " << f[i] << endl;
             }
         }
         
@@ -303,6 +319,45 @@ int impFunc(Empresa *e, int n, bool all, bool pausa) {
         }
         return -1;
     }
+}
+
+/**
+* @brief        Função que imprime a lista de funcionários em experiência 
+                de uma empresa (apresenta escolha)
+* @param[inout] *e Vetor de empresas do cadastro
+* @param[in]    n Número de empresas no cadastro
+* @param[in]    pausa True para apresentar uma pausa após a impressão
+* @return       -1 ou o número da empresa selecionada
+*/
+int impFuncExp(Empresa *e, int n, bool pausa) {
+    if(n == 0)
+        return -1;
+    impEmpresas(e, n, false);
+    int selecao = recebeInt("Digite o número da empresa (0 para cancelar): ", 0);
+    if(selecao == 0)
+        return -1;
+    selecao--;  //O usuário vai digitar o número com base em 1
+
+    if(e[selecao].getQtde() > 0) {
+        cout << "Funcionários da empresa " << e[selecao].getNome() << " em período de experiência:" << endl;
+        Funcionario *f = e[selecao].getFuncionarios();
+        bool existe = false;
+        for(int i = 0; i < e[selecao].getQtde(); i++)
+            if(f[i].Experiencia()) {
+                cout << "   (" << (i + 1) << ") " << f[i] << endl;
+                existe = true;
+            }
+        if(!existe)
+            cout << "0 funcionários";
+    } else
+        cout << "Nenhum funcionário na empresa selecionada." << endl;
+    
+    if(pausa) {
+        cout << "Pressione ENTER para continuar...";
+        string pausa;
+        getline(cin, pausa);
+    }
+    return selecao;
 }
 
 /**

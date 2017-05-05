@@ -58,7 +58,7 @@ int main(int argc, char* argv[]) {
                 impFunc(emp, qtdemp, false);
                 break;
             case 9:              //Listar os funcionários em experiência
-                impFunc(emp, qtdemp, false);
+                impFuncExp(emp, qtdemp, true);
                 break;
             case 10:             //Listar todos os funcionários de todas as empresas
                 impFunc(emp, qtdemp, true);

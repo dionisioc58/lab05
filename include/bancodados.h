@@ -75,9 +75,10 @@
     *               carregando-os apartir de um arquivo CSV
     * @param[in]    *e Vetor de empresas do cadastro
     * @param[in]    n Número de empresas no cadastro
+    * @param[in]    pausa True para apresentar uma pausa após a impressão do relatório de importação
     * @return       Retorna o novo vetor de empresas após o cadastro
     */
-    Empresa *addFuncArq(Empresa *e, int n);
+    Empresa *addFuncArq(Empresa *e, int n, bool pausa = true);
 
     /**
     * @brief        Função que remove um funcionário de uma empresa (apresenta escolha)
@@ -115,6 +116,16 @@
     * @return       -1 ou o número da empresa selecionada
     */
     int impFunc(Empresa *e, int n, bool all = true, bool pausa = true);
+
+    /**
+    * @brief        Função que imprime a lista de funcionários em experiência 
+                    de uma empresa (apresenta escolha)
+    * @param[inout] *e Vetor de empresas do cadastro
+    * @param[in]    n Número de empresas no cadastro
+    * @param[in]    pausa True para apresentar uma pausa após a impressão
+    * @return       -1 ou o número da empresa selecionada
+    */
+    int impFuncExp(Empresa *e, int n, bool pausa);
 
     /**
     * @brief        Função que salva o cadastro completo em arquivo

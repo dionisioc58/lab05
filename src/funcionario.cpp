@@ -51,9 +51,9 @@ bool Funcionario::Experiencia() {
 * @return	Referência para stream de saída
 */
 ostream& operator<<(ostream& os, Funcionario &f) {
-	os << "Nome: " << f.nome << "\t| ";
-	os << "Salário: " << f.salario << "\t| ";
-    os << "Admissão: ";
+	os <<  f.nome << "\t| ";
+	os << "Sal.: " << f.salario << "\t| ";
+    os << "Adm.: ";
     char mbstr[20];
     if (std::strftime(mbstr, sizeof(mbstr), "%d/%m/%Y", std::localtime(&f.admissao)))
         os << mbstr;
