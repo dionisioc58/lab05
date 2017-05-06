@@ -429,6 +429,7 @@ Empresa *abrirBD(string nome, Empresa *e, int &n) {
     }
     delete[] f;
     entrada.close();
+    cout << "Recuperação concluída com sucesso!" << endl;
 
     return r;
 }

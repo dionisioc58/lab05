@@ -157,9 +157,9 @@ Funções</h2></td></tr>
 <tr class="memitem:a23e571bc755081d003ab44824ef6f55e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bancodados_8h.html#a23e571bc755081d003ab44824ef6f55e">salvarBD</a> (string nome, <a class="el" href="classEmpresa.html">Empresa</a> *e, int n)</td></tr>
 <tr class="memdesc:a23e571bc755081d003ab44824ef6f55e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que salva o cadastro completo em arquivo.  <a href="#a23e571bc755081d003ab44824ef6f55e">Mais...</a><br /></td></tr>
 <tr class="separator:a23e571bc755081d003ab44824ef6f55e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1346d1f9ba200310b5043db04b3230cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bancodados_8h.html#a1346d1f9ba200310b5043db04b3230cb">abrirBD</a> (string nome, <a class="el" href="classEmpresa.html">Empresa</a> *e, int n)</td></tr>
-<tr class="memdesc:a1346d1f9ba200310b5043db04b3230cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que recupera o cadastro completo a partir de um arquivo.  <a href="#a1346d1f9ba200310b5043db04b3230cb">Mais...</a><br /></td></tr>
-<tr class="separator:a1346d1f9ba200310b5043db04b3230cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dcc8df7c7f52b48190c07495527688a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEmpresa.html">Empresa</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bancodados_8h.html#a1dcc8df7c7f52b48190c07495527688a">abrirBD</a> (string nome, <a class="el" href="classEmpresa.html">Empresa</a> *e, int &amp;n)</td></tr>
+<tr class="memdesc:a1dcc8df7c7f52b48190c07495527688a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que recupera o cadastro completo a partir de um arquivo.  <a href="#a1dcc8df7c7f52b48190c07495527688a">Mais...</a><br /></td></tr>
+<tr class="separator:a1dcc8df7c7f52b48190c07495527688a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
 <div class="textblock"><p>Arquivo de cabeçalho com a definição de funções para o controle dos dados. </p>
@@ -167,12 +167,12 @@ Funções</h2></td></tr>
 <dl class="section since"><dt>Desde</dt><dd>29/04/2017 </dd></dl>
 <dl class="section date"><dt>Data</dt><dd>29/04/2017 </dd></dl>
 </div><h2 class="groupheader">Funções</h2>
-<a class="anchor" id="a1346d1f9ba200310b5043db04b3230cb"></a>
+<a class="anchor" id="a1dcc8df7c7f52b48190c07495527688a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void abrirBD </td>
+          <td class="memname"><a class="el" href="classEmpresa.html">Empresa</a>* abrirBD </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
           <td class="paramname"><em>nome</em>, </td>
@@ -186,7 +186,7 @@ Funções</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">int &amp;&#160;</td>
           <td class="paramname"><em>n</em>&#160;</td>
         </tr>
         <tr>
@@ -202,13 +202,20 @@ Funções</h2></td></tr>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">nome</td><td>Caminho/nome do arquivo de dados </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">*e</td><td>Vetor de empresas do cadastro </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Número de empresas no cadastro</td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">n</td><td>Número de empresas no cadastro </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna o novo vetor de empresas após a importação</dd></dl>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">nome</td><td>Caminho/nome do arquivo de dados </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">*e</td><td>Vetor de empresas do cadastro </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Número de empresas no cadastro </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna o novo vetor de empresas após o cadastro </dd></dl>
 
 </div>
 </div>
@@ -697,7 +704,7 @@ Funções</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Sábado, 6 de Maio de 2017 17:45:43 para Laboratorio 5 por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Sábado, 6 de Maio de 2017 18:50:46 para Laboratorio 5 por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
