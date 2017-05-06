@@ -24,7 +24,8 @@
         void setSalario(float s);
         std::time_t getAdmissao();
         void setAdmissao(std::time_t a);
-        bool Experiencia();
+        bool experiencia();
+        string exportar();
         friend ostream& operator<<(ostream& os, Funcionario &f); /** @brief Sobrecarga do operador de inserção em stream */
         friend istream& operator>>(istream& is, Funcionario &f); /** @brief Sobrecarga do operador de extração de stream */
     };

@@ -343,7 +343,7 @@ int impFuncExp(Empresa *e, int n, bool pausa) {
         Funcionario *f = e[selecao].getFuncionarios();
         bool existe = false;
         for(int i = 0; i < e[selecao].getQtde(); i++)
-            if(f[i].Experiencia()) {
+            if(f[i].experiencia()) {
                 cout << "   (" << (i + 1) << ") " << f[i] << endl;
                 existe = true;
             }
@@ -367,7 +367,19 @@ int impFuncExp(Empresa *e, int n, bool pausa) {
 * @param[in]    n Número de empresas no cadastro
 */
 void salvarBD(string nome, Empresa *e, int n) {
+    ofstream saida(nome);
+    if(!saida) {
+        cout << "Não foi possível abrir o arquivo para salvar." << endl;
+        return;
+    }
+    for(int i = 0; i < n; i++) {
+        saida << e[i].exportar() << endl;
+        for(int j = 0; j < e[i].getQtde(); j++)
+            saida << e[i].getFuncionarios()[j].exportar() << endl;
+    }
 
+    saida.close();
+    cout << "Banco de dados salvo com sucesso!" << endl;
 }
 
 /**
@@ -377,5 +389,9 @@ void salvarBD(string nome, Empresa *e, int n) {
 * @param[in]    n Número de empresas no cadastro
 */
 void abrirBD(string nome, Empresa *e, int n) {
-
+    ifstream entrada(nome);
+    if(!entrada) {
+        cout << "Não foi possível abrir o arquivo para carregar." << endl;
+        return;
+    }
 }

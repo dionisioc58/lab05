@@ -36,12 +36,23 @@ void Funcionario::setAdmissao(std::time_t a) {
     admissao = a;
 }
 
-bool Funcionario::Experiencia() {
+bool Funcionario::experiencia() {
     std::time_t agora = std::time(NULL);
     double difference = std::difftime(agora, admissao) / (60 * 60 * 24);
     if(difference > 90)
         return false;
     return true;
+}
+
+string Funcionario::exportar() {
+    stringstream ss;
+    ss << "func;" << nome << ";" << salario << ";";
+    char mbstr[20];
+    if (std::strftime(mbstr, sizeof(mbstr), "%d/%m/%Y", std::localtime(&admissao)))
+        ss << mbstr;
+    string retorno;
+    ss >> retorno;
+    return retorno;
 }
 
 /** 

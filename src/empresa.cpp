@@ -113,6 +113,14 @@ void Empresa::aumento(float percentual) {
         funcionarios[i].setSalario(funcionarios[i].getSalario() * (1 + (percentual/100)));
 }
 
+string Empresa::exportar() {
+    stringstream ss;
+    ss << "empr;" << nome << ";" << cnpj;
+    string retorno;
+    ss >> retorno;
+    return retorno;
+}
+
 /** 
 * @details O operador é sobrecarregado para representar a empresa e seus funcionários
 * @param	os Referência para stream de saída
