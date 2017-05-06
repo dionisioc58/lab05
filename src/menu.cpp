@@ -38,8 +38,8 @@ int showMenuEmp() {
     int opcao = 0;
     do {
         opcao = recebeInt(": ", 0);
-        if((opcao < 0) || (opcao > 11))
+        if((opcao < 0) || (opcao > 12))
             cout << "Valor inválido!" << endl;
-    } while ((opcao < 0) || (opcao > 11));
+    } while ((opcao < 0) || (opcao > 12));
     return opcao;
 }

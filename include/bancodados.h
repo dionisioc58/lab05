@@ -139,8 +139,9 @@
     * @brief        Função que recupera o cadastro completo a partir de um arquivo
     * @param[in]    nome Caminho/nome do arquivo de dados
     * @param[in]    *e Vetor de empresas do cadastro
-    * @param[in]    n Número de empresas no cadastro
+    * @param[inout] n Número de empresas no cadastro
+    * @return       Retorna o novo vetor de empresas após a importação
     */
-    void abrirBD(string nome, Empresa *e, int n);
+    Empresa *abrirBD(string nome, Empresa *e, int &n);
 
 #endif

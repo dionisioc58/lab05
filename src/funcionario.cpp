@@ -51,7 +51,7 @@ string Funcionario::exportar() {
     if (std::strftime(mbstr, sizeof(mbstr), "%d/%m/%Y", std::localtime(&admissao)))
         ss << mbstr;
     string retorno;
-    ss >> retorno;
+    getline(ss, retorno);
     return retorno;
 }
 

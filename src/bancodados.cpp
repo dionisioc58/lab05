@@ -387,11 +387,48 @@ void salvarBD(string nome, Empresa *e, int n) {
 * @param[in]    nome Caminho/nome do arquivo de dados
 * @param[inout] *e Vetor de empresas do cadastro
 * @param[in]    n Número de empresas no cadastro
+* @return       Retorna o novo vetor de empresas após o cadastro
 */
-void abrirBD(string nome, Empresa *e, int n) {
+Empresa *abrirBD(string nome, Empresa *e, int &n) {
     ifstream entrada(nome);
     if(!entrada) {
         cout << "Não foi possível abrir o arquivo para carregar." << endl;
-        return;
+        return e;
     }
+    string texto;
+    stringstream info;
+    n = 0;
+    while(!entrada.eof()) {
+        getline(entrada, texto);
+        if(texto.substr(0, 4) == "empr")
+            n++;
+    }
+    Empresa *r = new Empresa[n];
+    
+    int conta = -1;
+    entrada.clear();
+    entrada.seekg(0);
+    
+    Funcionario *f = new Funcionario[1];
+    while(!entrada.eof()) {
+        getline(entrada, texto);
+        if(texto != "") {
+            info.clear();
+            info << texto.substr(5);
+
+            if(texto.substr(0, 4) == "empr")
+                info >> r[++conta];
+
+            if(texto.substr(0, 4) == "func") {
+                if(conta > -1) {
+                    info >> f[0];
+                    r[conta].addFuncionario(f);
+                }
+            }
+        }   
+    }
+    delete[] f;
+    entrada.close();
+
+    return r;
 }

@@ -68,7 +68,7 @@ int main(int argc, char* argv[]) {
                 salvarBD("./data/banco.dat", emp, qtdemp); 
                 break;
             case 12:            //Recuperar o banco
-                abrirBD("./data/banco.dat", emp, qtdemp); 
+                emp = abrirBD("./data/banco.dat", emp, qtdemp); 
                 break;
         }
     }

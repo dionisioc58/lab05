@@ -114,11 +114,7 @@ void Empresa::aumento(float percentual) {
 }
 
 string Empresa::exportar() {
-    stringstream ss;
-    ss << "empr;" << nome << ";" << cnpj;
-    string retorno;
-    ss >> retorno;
-    return retorno;
+    return "empr;" + nome + ";" + cnpj;
 }
 
 /** 
