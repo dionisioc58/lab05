@@ -3,7 +3,7 @@
 * @brief	Arquivo de cabeçalho com a definição de funções para o controle dos dados
 * @author   Dionísio Carvalho (dionisio@naracosta.com.br)
 * @since    29/04/2017
-* @date     29/04/2017
+* @date     07/05/2017
 */
 
 #ifndef BANCODADOS_H
@@ -108,7 +108,7 @@
     /**
     * @brief        Função que imprime a lista de funcionários de uma ou todas 
                     as empresas do cadastro
-    * @param[inout] *e Vetor de empresas do cadastro
+    * @param[in]    *e Vetor de empresas do cadastro
     * @param[in]    n Número de empresas no cadastro
     * @param[in]    all "true" imprime todos os funcionários de todas as empresas
                     "false" imprime apenas os funcionários de uma empresa (apresenta escolha)
@@ -120,7 +120,7 @@
     /**
     * @brief        Função que imprime a lista de funcionários em experiência 
                     de uma empresa (apresenta escolha)
-    * @param[inout] *e Vetor de empresas do cadastro
+    * @param[in]    *e Vetor de empresas do cadastro
     * @param[in]    n Número de empresas no cadastro
     * @param[in]    pausa True para apresentar uma pausa após a impressão
     * @return       -1 ou o número da empresa selecionada

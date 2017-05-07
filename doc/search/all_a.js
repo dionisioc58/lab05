@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['recebefloat',['recebeFloat',['../funcoes_8h.html#ad50ffdcfecc6907b77dfd91f5bdb8955',1,'recebeFloat(string msg, int min):&#160;funcoes.cpp'],['../funcoes_8cpp.html#ad50ffdcfecc6907b77dfd91f5bdb8955',1,'recebeFloat(string msg, int min):&#160;funcoes.cpp']]],
-  ['recebeint',['recebeInt',['../funcoes_8h.html#a2086a7c3272ac3b2a64478893d4b790e',1,'recebeInt(string msg, int min):&#160;funcoes.cpp'],['../funcoes_8cpp.html#a2086a7c3272ac3b2a64478893d4b790e',1,'recebeInt(string msg, int min):&#160;funcoes.cpp']]]
+  ['operator_3c_3c',['operator&lt;&lt;',['../classEmpresa.html#a9519b27d780d55c4f6dea043aab8ec43',1,'Empresa::operator&lt;&lt;()'],['../classFuncionario.html#a75068fd48c8f22133083f1dd8038c2eb',1,'Funcionario::operator&lt;&lt;()'],['../empresa_8cpp.html#a9519b27d780d55c4f6dea043aab8ec43',1,'operator&lt;&lt;(ostream &amp;os, Empresa &amp;e):&#160;empresa.cpp'],['../funcionario_8cpp.html#a75068fd48c8f22133083f1dd8038c2eb',1,'operator&lt;&lt;(ostream &amp;os, Funcionario &amp;f):&#160;funcionario.cpp']]],
+  ['operator_3e_3e',['operator&gt;&gt;',['../classEmpresa.html#a37a21c18acff622dadaca510ba480e39',1,'Empresa::operator&gt;&gt;()'],['../classFuncionario.html#ad350cffa45291b210634355e8c1940eb',1,'Funcionario::operator&gt;&gt;()'],['../empresa_8cpp.html#a37a21c18acff622dadaca510ba480e39',1,'operator&gt;&gt;(istream &amp;is, Empresa &amp;e):&#160;empresa.cpp'],['../funcionario_8cpp.html#ad350cffa45291b210634355e8c1940eb',1,'operator&gt;&gt;(istream &amp;is, Funcionario &amp;f):&#160;funcionario.cpp']]]
 ];

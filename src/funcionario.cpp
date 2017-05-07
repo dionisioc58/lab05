@@ -1,41 +1,71 @@
+/**
+ * @file	funcionario.cpp
+ * @brief	Implementacao dos métodos da classe Funcionario
+ * @author	Dionísio Carvalho (dionisio@naracosta.com.br)
+ * @since	06/05/2017
+ * @date	28/04/2017
+ */
+
 #include "funcionario.h"
 
+/**
+* @details Os valores de nome e salario sao inicializados com vazio
+*			e a data de admissão com a data atual
+*/
 Funcionario::Funcionario() {
     nome = "";
     salario = 0;
     admissao = std::time(NULL);
 }
 
-/*Funcionario::Funcionario(Funcionario &f) {
-    nome = f.getNome();
-    salario = f.getSalario();
-    admissao = f.getAdmissao();
-}*/
-
+/**
+* @return Nome do funcionário
+*/
 string Funcionario::getNome() {
     return nome;
 }
 
+/**
+* @details O método modifica o nome do funcionário
+* @param   n Nome
+*/
 void Funcionario::setNome(string n) {
     nome = n;
 }
 
+/**
+* @return Salário do funcionário
+*/
 float Funcionario::getSalario() {
     return salario;
 }
 
+/**
+* @details O método modifica o salário do funcionário
+* @param   s Salário
+*/
 void Funcionario::setSalario(float s) {
     salario = s;
 }
 
+/**
+* @return Data de admissão do funcionário
+*/
 std::time_t Funcionario::getAdmissao() {
     return admissao;
 }
 
+/**
+* @details O método modifica a data de admissão do funcionário
+* @param   a Data de admissão
+*/
 void Funcionario::setAdmissao(std::time_t a) {
     admissao = a;
 }
 
+/**
+* @return True se o está em período de experiência
+*/
 bool Funcionario::experiencia() {
     std::time_t agora = std::time(NULL);
     double difference = std::difftime(agora, admissao) / (60 * 60 * 24);
@@ -44,6 +74,9 @@ bool Funcionario::experiencia() {
     return true;
 }
 
+/**
+* @return String com os dados para exportação CSV
+*/
 string Funcionario::exportar() {
     stringstream ss;
     ss << "func;" << nome << ";" << salario << ";";

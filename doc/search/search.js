@@ -7,10 +7,10 @@
 
 var indexSectionsWithContent =
 {
-  0: "abcdefilmors",
+  0: "abcdefgilmoprs~",
   1: "ef",
-  2: "bfm",
-  3: "acdeimrs",
+  2: "befm",
+  3: "acdefgimoprs~",
   4: "o",
   5: "l"
 };

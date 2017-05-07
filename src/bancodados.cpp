@@ -3,7 +3,7 @@
 * @brief	Arquivo de corpo com a definição de funções para o controle dos dados
 * @author   Dionísio Carvalho (dionisio@naracosta.com.br)
 * @since    29/04/2017
-* @date     29/04/2017
+* @date     07/05/2017
 */
 
 #include "bancodados.h"
@@ -33,12 +33,23 @@ Funcionario *inputFuncionario() {
     //Coleta dados do funcionário
     string input;
     Funcionario *novo = new Funcionario[1];
+
     cout << "Digite o nome do funcionário: ";
     getline(cin, input);
     novo[0].setNome(input);
+
     float sal = recebeFloat("Digite o salário: ", 0);
     novo[0].setSalario(sal);
-    //novo[0].setAdmissao(now());
+    
+    cout << "Digite a data de admissão (dd/mm/yyyy): ";
+    cin >> input;
+    int dia, mes, ano;
+    dia = stoi(input.substr(0, 2));
+    mes = stoi(input.substr(3, 2));
+    ano = stoi(input.substr(6, 4));
+    std::tm a = {0, 0, 0, dia, mes - 1, ano - 1900};
+    novo[0].setAdmissao(std::mktime(&a));
+
     return novo;
 }
 
@@ -280,12 +291,13 @@ void impEmpresas(Empresa *e, int n, bool pausa) {
 int impFunc(Empresa *e, int n, bool all, bool pausa) {
     if(n == 0)
         return -1;
-    if(!all) {
+    if(!all) {      //Imprime todos os funcionários de uma empresa
         impEmpresas(e, n, false);
         int selecao = recebeInt("Digite o número da empresa (0 para cancelar): ", 0);
         if(selecao == 0)
             return -1;
         selecao--;  //O usuário vai digitar o número com base em 1
+
         if(e[selecao].getQtde() > 0) {
             cout << "Funcionários da empresa " << e[selecao].getNome() << endl;
             Funcionario *f = e[selecao].getFuncionarios();
@@ -301,7 +313,7 @@ int impFunc(Empresa *e, int n, bool all, bool pausa) {
             getline(cin, pausa);
         }
         return selecao;
-    } else {
+    } else {        //Imprime todos os funcionários de todas as empresas
         Funcionario *f;
         for(int j = 0; j < n; j++) {
             if(e[j].getQtde() > 0) {
@@ -385,8 +397,8 @@ void salvarBD(string nome, Empresa *e, int n) {
 /**
 * @brief        Função que recupera o cadastro completo a partir de um arquivo
 * @param[in]    nome Caminho/nome do arquivo de dados
-* @param[inout] *e Vetor de empresas do cadastro
-* @param[in]    n Número de empresas no cadastro
+* @param[in]    *e Vetor de empresas do cadastro
+* @param[inout] n Número de empresas no cadastro
 * @return       Retorna o novo vetor de empresas após o cadastro
 */
 Empresa *abrirBD(string nome, Empresa *e, int &n) {

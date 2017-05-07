@@ -96,15 +96,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Busca');
 <div class="textblock"><code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
-<code>#include &quot;empresa.h&quot;</code><br />
-<code>#include &quot;funcionario.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="empresa_8h_source.html">empresa.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="funcionario_8h_source.html">funcionario.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="funcoes_8h_source.html">funcoes.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Gráfico de dependência de inclusões para bancodados.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="bancodados_8h__incl.png" border="0" usemap="#include_2bancodados_8h" alt=""/></div>
 <map name="include_2bancodados_8h" id="include_2bancodados_8h">
-<area shape="rect" id="node5" href="empresa_8h_source.html" title="empresa.h" alt="" coords="241,80,324,107"/><area shape="rect" id="node7" href="funcionario_8h_source.html" title="funcionario.h" alt="" coords="320,155,416,181"/><area shape="rect" id="node9" href="funcoes_8h.html" title="Arquivo de cabeçalho com a definição de funções auxiliares para a entrada de dados. " alt="" coords="65,155,143,181"/></map>
+<area shape="rect" id="node5" href="empresa_8h.html" title="Definição da classe Empresa. " alt="" coords="241,80,324,107"/><area shape="rect" id="node7" href="funcionario_8h.html" title="Definição da classe Funcionario. " alt="" coords="320,155,416,181"/><area shape="rect" id="node9" href="funcoes_8h.html" title="Arquivo de cabeçalho com a definição de funções auxiliares para a entrada de dados. " alt="" coords="65,155,143,181"/></map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 Este grafo mostra quais arquivos estão direta ou indiretamente relacionados com este arquivo:</div>
@@ -165,7 +165,7 @@ Funções</h2></td></tr>
 <div class="textblock"><p>Arquivo de cabeçalho com a definição de funções para o controle dos dados. </p>
 <dl class="section author"><dt>Autor</dt><dd>Dionísio Carvalho (<a href="#" onclick="location.href='mai'+'lto:'+'dio'+'ni'+'sio'+'@n'+'ara'+'co'+'sta'+'.c'+'om.'+'br'; return false;">dioni<span style="display: none;">.nosp@m.</span>sio@<span style="display: none;">.nosp@m.</span>narac<span style="display: none;">.nosp@m.</span>osta<span style="display: none;">.nosp@m.</span>.com.<span style="display: none;">.nosp@m.</span>br</a>) </dd></dl>
 <dl class="section since"><dt>Desde</dt><dd>29/04/2017 </dd></dl>
-<dl class="section date"><dt>Data</dt><dd>29/04/2017 </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>07/05/2017 </dd></dl>
 </div><h2 class="groupheader">Funções</h2>
 <a class="anchor" id="a1dcc8df7c7f52b48190c07495527688a"></a>
 <div class="memitem">
@@ -210,8 +210,8 @@ Funções</h2></td></tr>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">nome</td><td>Caminho/nome do arquivo de dados </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">*e</td><td>Vetor de empresas do cadastro </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Número de empresas no cadastro </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*e</td><td>Vetor de empresas do cadastro </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">n</td><td>Número de empresas no cadastro </td></tr>
   </table>
   </dd>
 </dl>
@@ -477,7 +477,7 @@ Funções</h2></td></tr>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">*e</td><td>Vetor de empresas do cadastro </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Número de empresas no cadastro </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">*nova</td><td><a class="el" href="classEmpresa.html">Empresa</a> à ser verificada </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*nova</td><td><a class="el" href="classEmpresa.html" title="Classe que representa uma empresa. ">Empresa</a> à ser verificada </td></tr>
   </table>
   </dd>
 </dl>
@@ -569,6 +569,16 @@ Funções</h2></td></tr>
 <p>Função que imprime a lista de funcionários de uma ou todas as empresas do cadastro. </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">*e</td><td>Vetor de empresas do cadastro </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Número de empresas no cadastro </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">all</td><td>"true" imprime todos os funcionários de todas as empresas "false" imprime apenas os funcionários de uma empresa (apresenta escolha) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pausa</td><td>True para apresentar uma pausa após a impressão </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>-1 ou o número da empresa selecionada</dd></dl>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">*e</td><td>Vetor de empresas do cadastro </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Número de empresas no cadastro </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">all</td><td>"true" imprime todos os funcionários de todas as empresas "false" imprime apenas os funcionários de uma empresa (apresenta escolha) </td></tr>
@@ -613,6 +623,15 @@ Funções</h2></td></tr>
 <p>Função que imprime a lista de funcionários em experiência de uma empresa (apresenta escolha) </p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">*e</td><td>Vetor de empresas do cadastro </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Número de empresas no cadastro </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pausa</td><td>True para apresentar uma pausa após a impressão </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>-1 ou o número da empresa selecionada</dd></dl>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">*e</td><td>Vetor de empresas do cadastro </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Número de empresas no cadastro </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">pausa</td><td>True para apresentar uma pausa após a impressão </td></tr>
@@ -637,7 +656,7 @@ Funções</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Função que coleta os dados para cadastro de uma empresa. </p>
-<dl class="section return"><dt>Retorna</dt><dd><a class="el" href="classEmpresa.html">Empresa</a> coletada </dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd><a class="el" href="classEmpresa.html" title="Classe que representa uma empresa. ">Empresa</a> coletada </dd></dl>
 
 </div>
 </div>
@@ -704,7 +723,7 @@ Funções</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Gerado em Sábado, 6 de Maio de 2017 18:50:46 para Laboratorio 5 por &#160;<a href="http://www.doxygen.org/index.html">
+Gerado em Domingo, 7 de Maio de 2017 09:32:06 para Laboratorio 5 por &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.8
 </small></address>
