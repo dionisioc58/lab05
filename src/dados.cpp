@@ -1,9 +1,9 @@
 /**
-* @file     main.cpp
+* @file     dados.cpp
 * @brief 	Arquivo fonte para execução do projeto
 * @author   Dionísio Carvalho (dionisio@naracosta.com.br)
-* @since    25/04/2017
-* @date     25/04/2017
+* @since    07/05/2017
+* @date     07/05/2017
 */
 
 #include <iostream>
