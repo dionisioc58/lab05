@@ -25,9 +25,9 @@ CFLAGS = -Wall -pedantic -ansi -std=c++11 -I $(INC_DIR)
 
 # Define o alvo (target) para a compilacao completa.
 # Ao final da compilacao, remove os arquivos objeto.
-all: clean lab05 teste doxy
+all: clean lab05 dados teste doxy
 debug: CFLAGS += -g -O0
-debug: clean lab05 teste
+debug: clean lab05 dados teste
 
 # Alvo (target) para a construcao do executavel teste
 # Define os arquivos empresa.o, funcionario.o, bancodados.o, funcoes.o, menu.o e teste.o como dependencias
@@ -38,6 +38,21 @@ teste: $(OBJ_DIR)/empresa.o $(OBJ_DIR)/funcionario.o $(OBJ_DIR)/bancodados.o $(O
 	$(CC) $(CFLAGS) -o $(BIN_DIR)/$@ $^
 	@echo "+++ [Executavel $@ criado em $(BIN_DIR)] +++"
 	@echo "============="
+
+# Alvo (target) para a construcao do executavel dados
+# Define os arquivos funcionario.o e dados.o como dependencia
+dados: $(OBJ_DIR)/funcionario.o $(OBJ_DIR)/dados.o
+	@echo "============="
+	@echo "Ligando o alvo $@"
+	@echo "============="
+	$(CC) $(CFLAGS) -o $(BIN_DIR)/$@ $^
+	@echo "+++ [Executavel $@ criado em $(BIN_DIR)] +++"
+	@echo "============="
+
+# Alvo (target) para a construcao do objeto dados.o
+# Define o arquivo dados.cpp como dependencia.
+$(OBJ_DIR)/dados.o: $(SRC_DIR)/dados.cpp
+	$(CC) -c $(CFLAGS) -o $@ $<
 
 # Alvo (target) para a construcao do executavel lab05
 # Define os arquivos empresa.o, funcionario.o, funcoes.o, menu.o e main.o como dependencias
@@ -75,7 +90,7 @@ $(OBJ_DIR)/funcoes.o: $(SRC_DIR)/funcoes.cpp $(INC_DIR)/funcoes.h
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 # Alvo (target) para a construcao do objeto main.o
-# Define o arquivo main.cpp como dependencias.
+# Define o arquivo main.cpp como dependencia.
 $(OBJ_DIR)/main.o: $(SRC_DIR)/main.cpp
 	$(CC) -c $(CFLAGS) -o $@ $<
 
